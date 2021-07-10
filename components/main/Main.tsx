@@ -13,13 +13,28 @@ export const Main: React.FC = () => {
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>): void =>
     setKeyword(e.target.value);
+
+  {
+    /*  */
+  }
+
+  /*
+   * change the grid column depending if sidenav is open or not
+   *
+   * */
+
+  const gridCols = getMenu ? 'grid-cols-4' : 'grid-cols-3';
+
   return (
-    <section className='w-full px-16 py-6'>
+    <section
+      className={`w-full px-16 py-6 ${
+        !getMenu && 'ml-[18%]'
+      } transition-spacing duration-200`}
+    >
       <Header />
       <SearchBar value={keyword} onChange={handleOnChange} />
 
-      {/*  change the grid column depending if sidenav is open or not */}
-      <div className={`grid grid-cols-${getMenu ? '4' : '3'} gap-6`}>
+      <div className={`grid  gap-6 ${gridCols}`}>
         <ArticleCard />
         <ArticleCard />
         <ArticleCard />

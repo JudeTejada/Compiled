@@ -17,7 +17,8 @@ module.exports = {
         sans: ['Inter', ...fontFamily.sans]
       },
       transitionProperty: {
-        width: ' width'
+        width: ' width',
+        spacing: 'margin, padding'
       }
     }
   },

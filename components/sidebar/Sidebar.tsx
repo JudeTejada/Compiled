@@ -10,7 +10,7 @@ export const Sidebar: React.FC = () => {
     <aside
       className={`bg-secondaryDark  ${
         getMenu ? `w-0` : `w-[18%]`
-      } overflow-y-auto  max-h-screen py-6 transition-width duration-2  00 ease-in-out`}
+      } overflow-y-auto  max-h-screen py-6 transition-width duration-200 ease-in-out fixed`}
     >
       <ul className='grid gap-y-2'>
         <li className='py-3 hover:bg-tertiaryDark'>
