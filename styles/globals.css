@@ -18,5 +18,11 @@ html {
 }
 
 body {
-  font-family: "Inter" ;
+  font-family: 'Inter';
+  @apply bg-primaryDark text-primaryLight;
+}
+
+
+#sidebar{
+height: calc(100vh - 72px);
 }
