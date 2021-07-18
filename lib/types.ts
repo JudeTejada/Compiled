@@ -1,10 +1,8 @@
-
-
 export interface Column {
   object: string;
   id: string;
-  created_time: Date;
-  last_edited_time: Date;
+  created_time: string;
+  last_edited_time: string;
   parent: Parent;
   archived: boolean;
   properties: Properties;

@@ -1,8 +1,14 @@
 import { Column } from '@/lib/types';
-
 export const pages = ['React', 'UX'];
 
-export const filterItemsByCategory = (list: any, categoryName: string) => {
+interface Props {
+  list: Column[];
+}
+
+export const filterItemsByCategory = (
+  list: Column[],
+  categoryName: string
+): Column[] => {
   const filteredItems = list.filter(
     list =>
       list.properties.Category?.select.name.toLocaleLowerCase() ===

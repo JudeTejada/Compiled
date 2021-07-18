@@ -35,7 +35,9 @@ export const getStaticProps: GetStaticProps = async ({
 }: GetStaticPropsContext) => {
   const response = await getDatabase(process.env.NOTION_DATABASE_ID!);
 
-  const filteredItems = filterItemsByCategory(response, params.page);
+  const page = params?.page as string;
+
+  const filteredItems = filterItemsByCategory(response, page);
 
   return {
     props: {
