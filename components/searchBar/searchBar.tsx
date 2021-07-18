@@ -21,7 +21,7 @@ export const SearchBar = ({ ...inputProps }) => {
   }, [hasPress]);
 
   const handleKeyDown = (e: KeyboardEvent): void => {
-    if (e.key === '/') {
+    if (e.key === 's') {
       setHasPress(true);
     }
   };
