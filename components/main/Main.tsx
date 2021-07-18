@@ -1,12 +1,15 @@
 import { ChangeEvent, useState } from 'react';
 
 import { useMenuAtom } from '@/hooks/useMenuAtom';
+import { Column } from '@/lib/types';
 
-import { Header } from '@/components/header';
-import { SearchBar } from '@/components/searchBar';
-import { ArticleCard } from '@/components/articleCard';
+import { ListCards, SearchBar, Header } from '@/components/index';
 
-export const Main: React.FC = () => {
+interface Props {
+  list: Column[];
+}
+
+export const Main = ({ list }: Props) => {
   const { getMenu } = useMenuAtom();
 
   const [keyword, setKeyword] = useState<string>('');
@@ -14,32 +17,22 @@ export const Main: React.FC = () => {
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>): void =>
     setKeyword(e.target.value);
 
-  {
-    /*  */
-  }
-
-  /*
-   * change the grid column depending if sidenav is open or not
-   *
-   * */
-
-  const gridCols = getMenu ? 'grid-cols-4' : 'grid-cols-3';
+  const filteredList = list.filter(list =>
+    list.properties.Name.title[0].plain_text
+      .toLowerCase()
+      .includes(keyword.toLowerCase())
+  );
 
   return (
     <section
       className={`w-full px-16 py-6 ${
         !getMenu && 'ml-[18%]'
-      } transition-spacing duration-200`}
+      } transition-spacing duration-200 ease-in-out`}
     >
       <Header />
       <SearchBar value={keyword} onChange={handleOnChange} />
 
-      <div className={`grid  gap-6 ${gridCols}`}>
-        <ArticleCard />
-        <ArticleCard />
-        <ArticleCard />
-        <ArticleCard />
-      </div>
+      <ListCards list={filteredList} />
     </section>
   );
 };

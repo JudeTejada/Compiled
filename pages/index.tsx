@@ -1,17 +1,29 @@
-import React from 'react';
-
 import { Sidebar } from '@/components/sidebar';
 import { Main } from '@/components/main';
 
+import { getDatabase } from '@/lib/Notion';
+import { Column } from '@/lib/types';
 
-export default function Home() {
+interface Props {
+  list: Column[];
+}
 
+export default function Home({ list }: Props) {
   return (
     <>
-      <main className='flex min-h-screen'>
-        <Sidebar />
-        <Main />
-      </main>
+      <Main list={list} />
     </>
   );
 }
+
+export const getStaticProps = async () => {
+  const response = await getDatabase(process.env.NOTION_DATABASE_ID!);
+
+  return {
+    props: {
+      list: response
+    },
+
+    revalidate: 1
+  };
+};
