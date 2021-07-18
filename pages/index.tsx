@@ -25,6 +25,6 @@ export const getStaticProps = async () => {
       list: response
     },
 
-    revalidate: 1
+    revalidate: 60
   };
 };

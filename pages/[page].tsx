@@ -44,6 +44,6 @@ export const getStaticProps: GetStaticProps = async ({
       list: filteredItems
     },
 
-    revalidate: 1
+    revalidate: 60
   };
 };
