@@ -22,7 +22,7 @@ export const Sidebar: React.FC = () => {
         </li>
 
         {pages.map(page => (
-          <li className='py-3 hover:bg-tertiaryDark'>
+          <li className='py-3 hover:bg-tertiaryDark' key={page}>
             <NextLink href={`/${page}`} passHref>
               <a className='w-full px-12 text-base'>{page}</a>
             </NextLink>

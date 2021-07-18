@@ -11,7 +11,6 @@ interface Props {
 export const ListCards = ({ list }: Props) => {
   const { getMenu } = useMenuAtom();
 
-  console.log(list)
 
   /*
    * change the grid column depending if sidenav is open or not
