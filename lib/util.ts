@@ -1,5 +1,15 @@
 import { Column } from '@/lib/types';
-export const pages = ['React', 'UX'];
+export const pages = [
+  'React',
+  'UI & UX',
+  'Icons',
+  'Fonts',
+  'Illustrations',
+  'Color Palette',
+  'Accessibility',
+  'Mockups',
+  'Stock Photos'
+];
 
 interface Props {
   list: Column[];

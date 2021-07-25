@@ -11,14 +11,15 @@ interface Props {
 export const ListCards = ({ list }: Props) => {
   const { getMenu } = useMenuAtom();
 
-
   /*
    * change the grid column depending if sidenav is open or not
    * */
-  const gridCols = getMenu ? 'grid-cols-4' : 'grid-cols-3';
+  const gridCols = getMenu ? 'lg:grid-cols-4' : 'lg:grid-cols-3';
 
   return (
-    <section className={`grid  gap-6 ${gridCols}`}>
+    <section
+      className={`grid  gap-6 ${gridCols} md:grid-cols-2 sm:grid-cols-1`}
+    >
       {list.map(item => (
         <ArticleCard key={item.id} {...item} />
       ))}

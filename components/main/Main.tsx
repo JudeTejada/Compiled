@@ -17,7 +17,7 @@ export const Main = ({ list }: Props) => {
   const filteredList = list.filter(list =>
     list.properties.Name.title[0].plain_text
       .toLowerCase()
-      .includes(keyword.toLowerCase())
+      .startsWith(keyword.toLowerCase())
   );
 
   return (

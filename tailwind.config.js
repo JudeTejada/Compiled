@@ -11,7 +11,10 @@ module.exports = {
         secondaryDark: '#26252C',
         tertiaryDark: '#2E2D34',
         primaryLight: '#F4F3F6',
-        secondaryLight: '#B6A9BC'
+        secondaryLight: '#B6A9BC',
+
+        purple: '#7048ec',
+        purpleLight: '#5325e1'
       },
       fontFamily: {
         sans: ['Inter', ...fontFamily.sans]

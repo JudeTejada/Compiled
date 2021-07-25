@@ -1,5 +1,5 @@
 import { Sidebar } from '@/components/sidebar';
-import { Main } from '@/components/main';
+import { Main, MainHero } from '@/components/index';
 
 import { getDatabase } from '@/lib/Notion';
 import { Column } from '@/lib/types';
@@ -11,7 +11,7 @@ interface Props {
 export default function Home({ list }: Props) {
   return (
     <>
-<h1 className='my-12 font-bold text-7xl'>All Resources</h1>
+      <MainHero />
       <Main list={list} />
     </>
   );
