@@ -20,6 +20,8 @@ export const Main = ({ list }: Props) => {
       .startsWith(keyword.toLowerCase())
   );
 
+  console.log('filteredList', filteredList);
+
   return (
     <>
       <SearchBar value={keyword} onChange={handleOnChange} />

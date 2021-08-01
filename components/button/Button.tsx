@@ -21,7 +21,7 @@ export const Button = ({ children }: React.PropsWithChildren<Props>) => {
   return (
     <button
       role='button'
-      className='px-6 py-3 text-white rounded-md outline-none cursor-pointer bg-purple hover:bg-purpleLight focus-visible:bg-purpleLight'
+      className='px-3 py-3 text-sm text-white rounded-md outline-none cursor-pointer md:text-base bg-purple hover:bg-purpleLight focus-visible:bg-purpleLight'
     >
       {children}
     </button>

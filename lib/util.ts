@@ -8,7 +8,11 @@ export const pages = [
   'Color Palette',
   'Accessibility',
   'Mockups',
-  'Stock Photos'
+  'Stock Photos',
+  'Design System',
+  'Miscellaneous',
+  'CSS Libaries',
+  'Performance'
 ];
 
 interface Props {

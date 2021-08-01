@@ -1,7 +1,8 @@
 import Image from 'next/image';
-import NextLink from 'next/link';
 
 import Avatar from '../../public/images/avatar.png';
+
+import { NavLink } from '@/components/index';
 
 import { useMenuAtom } from '@/hooks/useMenuAtom';
 
@@ -16,18 +17,13 @@ export const Sidebar: React.FC = () => {
         getMenu ? `w-0` : `w-[18%]`
       } overflow-y-auto  max-h-screen py-6 transition-width duration-200 ease-in-out fixed h-screen  items-start justify-between flex-col hidden md:flex`}
     >
-      <ul className='grid gap-y-2'>
-        <li className='py-3 hover:bg-tertiaryDark'>
-          <NextLink href='/' passHref>
-            <a className='w-full px-12 text-base'>All</a>
-          </NextLink>
-        </li>
+      <ul className='grid w-full gap-y-2'>
+        <NavLink>All</NavLink>
+
         {pages.map(page => (
-          <li className='py-3 hover:bg-tertiaryDark' key={page}>
-            <NextLink href={`/${page}`} passHref>
-              <a className='w-full px-12 text-base'>{page}</a>
-            </NextLink>
-          </li>
+          <NavLink key={page} href={page}>
+            {page}
+          </NavLink>
         ))}
       </ul>
 
@@ -39,9 +35,14 @@ export const Sidebar: React.FC = () => {
           height='35px'
           objectFit='cover'
         />
-        <h3 className='cursor-pointer text-secondaryLight hover:underline'>
+        <a
+          rel='noreferrer'
+          target='_blank'
+          href='https://judetejada.vercel.app/'
+          className='cursor-pointer text-secondaryLight hover:underline'
+        >
           Made by Jude
-        </h3>
+        </a>
       </div>
     </aside>
   );

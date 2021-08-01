@@ -7,3 +7,4 @@ export * from './searchBar';
 export * from './container';
 export * from './mainHero';
 export * from './button';
+export * from './navLink';
