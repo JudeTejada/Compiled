@@ -5,7 +5,7 @@ import { useMenuAtom } from '@/hooks/useMenuAtom';
 interface Props {
   className?: string;
   isActive?: boolean;
-  href?: string;
+  href: string;
 }
 
 export const NavLink = ({
@@ -23,7 +23,7 @@ export const NavLink = ({
         isActive && 'bg-tertiaryDark'
       } ${className}`}
     >
-      <NextLink href={`/${href || ''}`} passHref>
+      <NextLink href={href} passHref>
         <a className='w-full text-sm md:text-base'>{children}</a>
       </NextLink>
     </li>

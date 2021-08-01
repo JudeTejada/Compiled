@@ -9,9 +9,14 @@ import { MenuIcon } from '@heroicons/react/outline';
 import { Button, NavLink } from '@/components/index';
 
 export const Header: React.FC = () => {
+  const router = useRouter();
   const { setMenu, getMenu } = useMenuAtom();
 
   const isMobile = useIsMobile();
+
+  const { page: currentPage } = router.query;
+
+  console.log(router.pathname);
 
   const isNavOpen = getMenu ? `transition-opacity` : `opacity-0 invisible`;
 
@@ -36,10 +41,16 @@ export const Header: React.FC = () => {
         className={`fixed left-0 z-50 w-full bg-secondaryDark top-20 block md:hidden ${isNavOpen} overflow-y-auto  max-h-screen `}
       >
         <ul className='grid w-full gap-y-2'>
-          <NavLink>All</NavLink>
+          <NavLink isActive={router.asPath === '/'} href='/'>
+            All
+          </NavLink>
 
           {pages.map(page => (
-            <NavLink key={page} href={page}>
+            <NavLink
+              key={page}
+              href={`/${page}`}
+              isActive={page === currentPage}
+            >
               {page}
             </NavLink>
           ))}

@@ -20,7 +20,6 @@ export const Main = ({ list }: Props) => {
       .startsWith(keyword.toLowerCase())
   );
 
-  console.log('filteredList', filteredList);
 
   return (
     <>

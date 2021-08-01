@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 import Avatar from '../../public/images/avatar.png';
 
@@ -10,6 +11,9 @@ import { pages } from '@/lib/util';
 
 export const Sidebar: React.FC = () => {
   const { getMenu } = useMenuAtom();
+  const router = useRouter();
+
+  const { page: currentPage } = router.query;
 
   return (
     <aside
@@ -18,10 +22,12 @@ export const Sidebar: React.FC = () => {
       } overflow-y-auto  max-h-screen py-6 transition-width duration-200 ease-in-out fixed h-screen  items-start justify-between flex-col hidden md:flex`}
     >
       <ul className='grid w-full gap-y-2'>
-        <NavLink>All</NavLink>
+        <NavLink href='/' isActive={router.asPath === '/'}>
+          All
+        </NavLink>
 
         {pages.map(page => (
-          <NavLink key={page} href={page}>
+          <NavLink key={page} href={`/${page}`} isActive={page === currentPage}>
             {page}
           </NavLink>
         ))}
