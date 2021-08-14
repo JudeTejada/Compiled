@@ -1,15 +1,20 @@
-interface Props {
+import NextLink from 'next/link';
+
+interface ButtonProps {
   type: string;
+  className?: string;
 }
 
-type Variants = 'Primary' | 'Secondary';
+interface ButtonLinkProps extends ButtonProps {
+  href: string;
+}
 
-const ButtonSwitchStyles = (type: Variants) => {
-  const baseStyles = '';
+const ButtonSwitchStyles = (type: string) => {
+  const baseStyles = 'outline-none cursor-pointer text-base px-3 py-3';
 
   switch (type) {
-    case 'Primary':
-      return '';
+    case 'primary':
+      return `${baseStyles} font-semibold rounded-md  text-white  bg-purple hover:bg-purpleLight focus-visible:bg-purpleLight  `;
 
     default: {
       throw new Error('variant not supported for that');
@@ -17,13 +22,29 @@ const ButtonSwitchStyles = (type: Variants) => {
   }
 };
 
-export const Button = ({ children }: React.PropsWithChildren<Props>) => {
+export const Button = ({
+  children,
+  className,
+  type
+}: React.PropsWithChildren<ButtonProps>) => {
   return (
-    <button
-      role='button'
-      className='px-3 py-3 text-sm font-semibold rounded-md outline-none cursor-pointer text-whiteite md:text-base bg-purple hover:bg-purpleLight focus-visible:bg-purpleLight'
-    >
+    <button className={` ${ButtonSwitchStyles(type)} ${className}`}>
       {children}
     </button>
+  );
+};
+
+export const ButtonLink = ({
+  children,
+  href,
+  className,
+  type
+}: React.PropsWithChildren<ButtonLinkProps>) => {
+  return (
+    <NextLink passHref href={href}>
+      <button className={` ${ButtonSwitchStyles(type)} ${className}`}>
+        {children}
+      </button>
+    </NextLink>
   );
 };
