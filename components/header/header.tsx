@@ -6,7 +6,7 @@ import { MenuIcon } from '@heroicons/react/outline';
 import { pagesState } from '@/recoil/atom';
 
 import { useMenuAtom, useIsMobile } from '@/hooks/index';
-import { Button, NavLink } from '@/components/index';
+import { ButtonLink, NavLink } from '@/components/index';
 
 export const Header: React.FC = () => {
   const router = useRouter();
@@ -33,9 +33,9 @@ export const Header: React.FC = () => {
           </NextLink>
         </div>
         <div>
-          <NextLink href='/submit' passHref>
-            <Button type='primary'>Submit a resource</Button>
-          </NextLink>
+          <ButtonLink href='/submit' type='primary'>
+            Submit a resource
+          </ButtonLink>
         </div>
       </header>
       <nav
