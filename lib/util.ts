@@ -1,4 +1,4 @@
-import { Column } from '@/lib/types';
+import { Column, Page } from '@/lib/types';
 export const pages = [
   'React',
   'UI & UX',
@@ -14,10 +14,6 @@ export const pages = [
   'CSS Libaries',
   'Performance'
 ];
-
-interface Props {
-  list: Column[];
-}
 
 export const filterItemsByCategory = (
   list: Column[],

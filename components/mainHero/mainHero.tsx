@@ -1,12 +1,13 @@
-import { useRouter } from 'next/router';
+interface Props {
+  title: string;
+  description: string;
+}
 
-export const MainHero = () => {
-  const router = useRouter();
-
-  const { page } = router.query;
+export const MainHero = ({ title, description }: Props) => {
   return (
-    <h1 className='my-12 text-4xl font-bold md:text-6xl'>
-      {page ? `A compiled resources on ${page}` : 'All Resources'}
-    </h1>
+    <header>
+      <h1 className='my-12 text-4xl font-bold md:text-6xl'>{title}</h1>
+      <p className='text-base text-secondaryLight'>{description}</p>
+    </header>
   );
 };

@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useMemo, useState } from 'react';
 
 import { Column } from '@/lib/types';
 
@@ -14,12 +14,15 @@ export const Main = ({ list }: Props) => {
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>): void =>
     setKeyword(e.target.value);
 
-  const filteredList = list.filter(list =>
-    list.properties.Name.title[0].plain_text
-      .toLowerCase()
-      .startsWith(keyword.toLowerCase())
+  const filteredList = useMemo(
+    () =>
+      list.filter(list =>
+        list.properties.Name.title[0].plain_text
+          .toLowerCase()
+          .startsWith(keyword.toLowerCase())
+      ),
+    [keyword, list]
   );
-
 
   return (
     <>

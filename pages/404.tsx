@@ -1,7 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
-const NotFound = props => {
+const NotFound = () => {
   return (
     <div>
       <h1>Oops that page you're trying to view can't be found</h1>

@@ -108,14 +108,14 @@ export interface PageProperties {
 export interface PageDescription {
   id: string;
   type: string;
-  rich_text?: null[] | null;
+  rich_text: TextEntity[];
 }
 export interface PageName {
   id: string;
   type: string;
-  title: TitleEntity[];
+  title: TextEntity[];
 }
-export interface TitleEntity {
+export interface TextEntity {
   type: string;
   text: Text;
   annotations: Annotations;

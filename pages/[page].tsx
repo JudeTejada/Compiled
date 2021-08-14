@@ -1,4 +1,5 @@
 import { GetStaticProps, GetStaticPropsContext } from 'next';
+import { useRouter } from 'next/router';
 
 import { Main, MainHero } from '@/components/index';
 
@@ -7,6 +8,7 @@ import { Column, Page } from '@/lib/types';
 import { filterItemsByCategory } from '@/lib/util';
 
 import { useSetPages } from '@/hooks/useSetPages';
+import { useMemo } from 'react';
 
 interface Props {
   list: Column[];
@@ -14,11 +16,31 @@ interface Props {
 }
 
 export default function Home({ list, pages }: Props) {
+  const router = useRouter();
+  const { page } = router.query;
+
   useSetPages(pages);
+
+  const { title, description } = useMemo(() => {
+    const selectedPage = pages.find(
+      navPage => navPage.properties.Page.title[0].plain_text === page
+    );
+
+    return {
+      title: selectedPage?.properties.Page.title[0].plain_text,
+      description: selectedPage?.properties.description.rich_text[0].plain_text
+    };
+  }, [page, pages]);
+
+
+
 
   return (
     <>
-      <MainHero />
+      <MainHero
+        title={title || page as string}
+        description={description || `A compiled resources of ${page}`}
+      />
 
       <Main list={list} />
     </>
