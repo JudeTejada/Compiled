@@ -32,13 +32,10 @@ export default function Home({ list, pages }: Props) {
     };
   }, [page, pages]);
 
-
-
-
   return (
     <>
       <MainHero
-        title={title || page as string}
+        title={title || (page as string)}
         description={description || `A compiled resources of ${page}`}
       />
 
