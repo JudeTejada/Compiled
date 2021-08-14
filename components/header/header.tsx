@@ -28,7 +28,9 @@ export const Header: React.FC = () => {
             className='w-5 h-5 mr-6 cursor-pointer text-secondaryLight focus-visible:text-primaryLight'
             onClick={() => setMenu(!getMenu)}
           />
-          <h1 className='text-lg font-semibold'>Compiled</h1>
+          <NextLink passHref href='/'>
+            <h1 className='text-lg font-semibold cursor-pointer'>Compiled</h1>
+          </NextLink>
         </div>
         <div>
           <NextLink href='/submit' passHref>
