@@ -1,28 +1,36 @@
-import { Sidebar } from '@/components/sidebar';
 import { Main, MainHero } from '@/components/index';
 
 import { getDatabase } from '@/lib/Notion';
-import { Column } from '@/lib/types';
+import { Column, Page } from '@/lib/types';
+import { useSetPages } from '@/hooks/useSetPages';
 
 interface Props {
-  list: Column[];
+  resources: Column[];
+  pages: Page[];
 }
 
-export default function Home({ list }: Props) {
+export default function Home({ resources, pages }: Props) {
+  useSetPages(pages);
+
   return (
     <>
       <MainHero />
-      <Main list={list} />
+      <Main list={resources} />
     </>
   );
 }
 
 export const getStaticProps = async () => {
-  const response = await getDatabase(process.env.NOTION_DATABASE_ID!);
+  const resources: Column[] = await getDatabase(
+    process.env.NOTION_DATABASE_ID!
+  );
+
+  const pages: Page[] = await getDatabase(process.env.NOTION_DATABASE_PAGES!);
 
   return {
     props: {
-      list: response
+      resources,
+      pages
     },
 
     revalidate: 60

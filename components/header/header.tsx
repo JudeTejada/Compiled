@@ -1,22 +1,21 @@
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
-
-import { pages } from '@/lib/util';
-
-import { useMenuAtom, useIsMobile } from '@/hooks/index';
+import { useRecoilValue } from 'recoil';
 import { MenuIcon } from '@heroicons/react/outline';
 
+import { pagesState } from '@/recoil/atom';
+
+import { useMenuAtom, useIsMobile } from '@/hooks/index';
 import { Button, NavLink } from '@/components/index';
 
 export const Header: React.FC = () => {
   const router = useRouter();
   const { setMenu, getMenu } = useMenuAtom();
+  const getPages = useRecoilValue(pagesState);
 
   const isMobile = useIsMobile();
 
   const { page: currentPage } = router.query;
-
-  console.log(router.pathname);
 
   const isNavOpen = getMenu ? `transition-opacity` : `opacity-0 invisible`;
 
@@ -45,15 +44,18 @@ export const Header: React.FC = () => {
             All
           </NavLink>
 
-          {pages.map(page => (
-            <NavLink
-              key={page}
-              href={`/${page}`}
-              isActive={page === currentPage}
-            >
-              {page}
-            </NavLink>
-          ))}
+          {getPages.map(page => {
+            const navPage = page.properties.Page.title[0].plain_text;
+            return (
+              <NavLink
+                key={navPage}
+                href={`/${navPage}`}
+                isActive={navPage === currentPage}
+              >
+                {navPage}
+              </NavLink>
+            );
+          })}
         </ul>
       </nav>
       <style jsx global>{`

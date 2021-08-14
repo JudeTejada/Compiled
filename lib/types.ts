@@ -89,3 +89,36 @@ export interface Name {
   type: string;
   title: RichText[];
 }
+
+export interface Page {
+  object: string;
+  id: string;
+  created_time: string;
+  last_edited_time: string;
+  parent: Parent;
+  archived: boolean;
+  properties: PageProperties;
+  url: string;
+}
+
+export interface PageProperties {
+  description: PageDescription;
+  Page: PageName;
+}
+export interface PageDescription {
+  id: string;
+  type: string;
+  rich_text?: null[] | null;
+}
+export interface PageName {
+  id: string;
+  type: string;
+  title: TitleEntity[];
+}
+export interface TitleEntity {
+  type: string;
+  text: Text;
+  annotations: Annotations;
+  plain_text: string;
+  href?: null;
+}

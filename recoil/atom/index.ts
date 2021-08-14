@@ -1,1 +1,1 @@
-export * from './menuAtom';
+export * from './atoms';
