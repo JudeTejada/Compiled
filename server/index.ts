@@ -1,12 +1,11 @@
-const express = require('express');
-
-const next = require('next');
+// const express = require('express');
+import express from 'express';
+import next from 'next';
+import { Client } from '@notionhq/client';
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
-
-const { Client } = require('@notionhq/client');
 
 const notion = new Client({
   auth: 'secret_z4NGj1rP11tR4dgx8aONbjmsPq4gDob7piT7OgoG9MA'
@@ -16,7 +15,7 @@ app.prepare().then(() => {
   const server = express();
   server.use(express.json());
 
-  server.post('/api/submit', (req, res) => {
+  server.post('/api/submit', (req: any, res: any) => {
     const { link, category } = req.body;
 
     const database_id = '8b64e3b9f3734474a2581330714172ce';
@@ -56,7 +55,7 @@ app.prepare().then(() => {
     return handle(req, res);
   });
 
-  server.listen(3000, err => {
+  server.listen(3000, (err?: any) => {
     if (err) throw err;
     console.log('Ready on http://localhost:5000');
   });
