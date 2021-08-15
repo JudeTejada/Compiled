@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import { Button } from '@/components/index';
 import { useSetPages } from '@/hooks/useSetPages';
-import { getDatabase, submitEntry } from '@/lib/Notion';
+import { getDatabase } from '@/lib/Notion';
 import { Page } from '@/lib/types';
 
 enum Categories {
