@@ -17,15 +17,15 @@ export const NavLink = ({
   const { setMenu } = useMenuAtom();
 
   return (
-    <NextLink href={href} passHref>
-      <li
-        onClick={() => setMenu(false)}
-        className={`w-full px-6  md:px-12 py-3 cursor-pointer hover:bg-tertiaryDark ${
-          isActive && 'bg-tertiaryDark'
-        } ${className}`}
-      >
-        <a className='w-full text-sm md:text-base'>{children}</a>
-      </li>
-    </NextLink>
+    <li
+      onClick={() => setMenu(false)}
+      className={`w-full px-6  md:px-12 py-3   hover:bg-tertiaryDark ${
+        isActive && 'bg-tertiaryDark'
+      } ${className}`}
+    >
+      <NextLink href={href} passHref>
+        <a className='w-full text-sm cursor-pointer md:text-base'>{children}</a>
+      </NextLink>
+    </li>
   );
 };
