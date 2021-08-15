@@ -24,7 +24,3 @@ export const getBlocks = async (blockId: string) => {
   return response.results;
 };
 
-interface EntriesProps {
-  link: string;
-  category: string;
-}

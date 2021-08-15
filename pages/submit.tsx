@@ -26,7 +26,7 @@ interface IFormInput {
   category: Categories;
 }
 
-const SubmitPage = ({ pages, entries }: { pages: Page[] }) => {
+const SubmitPage = ({ pages }: { pages: Page[] }) => {
   useSetPages(pages);
 
   const [submitEntry, setSubmitEntry] = useState({
@@ -160,12 +160,10 @@ export default SubmitPage;
 
 export const getStaticProps = async () => {
   const pages: Page[] = await getDatabase(process.env.NOTION_DATABASE_PAGES!);
-  const entries = await getDatabase(process.env.NOTION_DATABASE_ENTRIES!);
 
   return {
     props: {
       pages,
-      entries
     },
 
     revalidate: 60
