@@ -13,6 +13,8 @@ module.exports = {
         primaryLight: '#F4F3F6',
         secondaryLight: '#B6A9BC',
 
+        borderLight: '#424048',
+
         purple: '#7048ec',
         purpleLight: '#5325e1'
       },
