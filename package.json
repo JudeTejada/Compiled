@@ -3,18 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "ts-node --project tsconfig.server.json server/index.ts",
-    "start": "NODE_ENV=production node server.js",
-    "build:server": "tsc --project tsconfig.server.json",
-    "build:next": "next build",
-    "build": "npm run build:next && npm run build:server",
-    "lint": "next lint"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
     "@heroicons/react": "^1.0.2",
     "@notionhq/client": "^0.2.1",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
     "next": "11.0.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -29,7 +24,6 @@
     "eslint-config-next": "11.0.1",
     "postcss": "^8.3.5",
     "tailwindcss": "^2.2.4",
-    "ts-node": "^10.2.0",
     "typescript": "4.3.5"
   }
 }
