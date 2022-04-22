@@ -2,7 +2,6 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { useState } from 'react';
 
 import { Button } from '@/components/index';
-import { useSetPages } from '@/hooks/useSetPages';
 import { getDatabase } from '@/lib/Notion';
 import { Page } from '@/lib/types';
 
@@ -27,8 +26,6 @@ interface IFormInput {
 }
 
 const SubmitPage = ({ pages }: { pages: Page[] }) => {
-  useSetPages(pages);
-
   const [submitEntry, setSubmitEntry] = useState({
     isLoading: false,
     isError: false,
@@ -163,7 +160,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      pages,
+      pages
     },
 
     revalidate: 60
