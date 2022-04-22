@@ -2,8 +2,6 @@ import { Main, MainHero } from '@/components/index';
 
 import { getDatabase } from '@/lib/Notion';
 import { Column, Page } from '@/lib/types';
-import { useSetPages } from '@/hooks/useSetPages';
-import { useEffect } from 'react';
 
 interface Props {
   resources: Column[];
@@ -11,13 +9,6 @@ interface Props {
 }
 
 export default function Home({ resources, pages }: Props) {
-  const { handleSetPages } = useSetPages(pages);
-
-  
-  useEffect(() => {
-    handleSetPages(pages);
-  }, [handleSetPages, pages]);
-
   return (
     <>
       <MainHero

@@ -1,14 +1,12 @@
 import { GetStaticProps, GetStaticPropsContext } from 'next';
 import { useRouter } from 'next/router';
+import { useMemo } from 'react';
 
 import { Main, MainHero } from '@/components/index';
 
 import { getDatabase } from '@/lib/Notion';
 import { Column, Page } from '@/lib/types';
 import { filterItemsByCategory } from '@/lib/util';
-
-import { useSetPages } from '@/hooks/useSetPages';
-import { useEffect, useMemo } from 'react';
 
 interface Props {
   list: Column[];
@@ -18,12 +16,6 @@ interface Props {
 export default function Home({ list, pages }: Props) {
   const router = useRouter();
   const { page } = router.query;
-
-  const { handleSetPages } = useSetPages(pages);
-
-  useEffect(() => {
-    handleSetPages(pages);
-  }, [handleSetPages, pages]);
 
   const { title, description } = useMemo(() => {
     const selectedPage = pages.find(

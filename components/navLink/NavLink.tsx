@@ -10,7 +10,7 @@ interface Props {
 
 export const NavLink = ({
   children,
-  className,
+  className = '',
   isActive,
   href
 }: React.PropsWithChildren<Props>) => {
