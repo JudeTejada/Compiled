@@ -9,7 +9,7 @@ export const pages = [
   'Mockups',
   'Stock Photos',
   'Design System',
-  'Miscellaneous',
-  'CSS Libaries',
+  'Miscelleanous',
+  'CSS Libraries',
   'Performance'
 ];
