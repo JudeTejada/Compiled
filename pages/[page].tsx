@@ -8,7 +8,7 @@ import { Column, Page } from '@/lib/types';
 import { filterItemsByCategory } from '@/lib/util';
 
 import { useSetPages } from '@/hooks/useSetPages';
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 
 interface Props {
   list: Column[];
@@ -19,7 +19,11 @@ export default function Home({ list, pages }: Props) {
   const router = useRouter();
   const { page } = router.query;
 
-  useSetPages(pages);
+  const { handleSetPages } = useSetPages(pages);
+
+  useEffect(() => {
+    handleSetPages(pages);
+  }, [handleSetPages, pages]);
 
   const { title, description } = useMemo(() => {
     const selectedPage = pages.find(

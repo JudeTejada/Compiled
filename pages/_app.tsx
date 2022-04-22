@@ -2,8 +2,15 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { RecoilRoot } from 'recoil';
 
+import { Page } from '@/lib/types';
+
 import { Sidebar, Container, Header } from '@/components/index';
-function MyApp({ Component, pageProps }: AppProps) {
+
+interface PageProps {
+  pages: Page[];
+}
+
+function MyApp({ Component, pageProps }: AppProps<PageProps>) {
   return (
     <RecoilRoot>
       <Sidebar />
@@ -17,4 +24,5 @@ function MyApp({ Component, pageProps }: AppProps) {
     </RecoilRoot>
   );
 }
+
 export default MyApp;

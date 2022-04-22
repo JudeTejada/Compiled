@@ -9,6 +9,7 @@ import { NavLink } from '@/components/index';
 import { useMenuAtom } from '@/hooks/useMenuAtom';
 
 import { pagesState } from '@/recoil/atom';
+import { pages } from '@/constants/routes';
 
 export const Sidebar: React.FC = () => {
   const { getMenu } = useMenuAtom();
@@ -29,15 +30,15 @@ export const Sidebar: React.FC = () => {
           All
         </NavLink>
 
-        {getPages.map(page => {
-          const navPage = page.properties.Page.title[0].plain_text;
+        {pages.map(page => {
+          // const navPage = page.properties.Page.title[0].plain_text;
           return (
             <NavLink
-              key={navPage}
-              href={`/${navPage}`}
-              isActive={navPage === currentPage}
+              key={page}
+              href={`/${page}`}
+              isActive={page === currentPage}
             >
-              {navPage}
+              {page}
             </NavLink>
           );
         })}
