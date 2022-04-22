@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { useRecoilValue } from 'recoil';
 
 import Avatar from '../../public/images/avatar.png';
 
@@ -8,15 +7,13 @@ import { NavLink } from '@/components/index';
 
 import { useMenuAtom } from '@/hooks/useMenuAtom';
 
-import { pagesState } from '@/recoil/atom';
+import { pages } from '@/constants/routes';
 
 export const Sidebar: React.FC = () => {
   const { getMenu } = useMenuAtom();
   const router = useRouter();
 
   const { page: currentPage } = router.query;
-
-  const getPages = useRecoilValue(pagesState);
 
   return (
     <aside
@@ -29,18 +26,11 @@ export const Sidebar: React.FC = () => {
           All
         </NavLink>
 
-        {getPages.map(page => {
-          const navPage = page.properties.Page.title[0].plain_text;
-          return (
-            <NavLink
-              key={navPage}
-              href={`/${navPage}`}
-              isActive={navPage === currentPage}
-            >
-              {navPage}
-            </NavLink>
-          );
-        })}
+        {pages.map(page => (
+          <NavLink key={page} href={`/${page}`} isActive={page === currentPage}>
+            {page}
+          </NavLink>
+        ))}
       </ul>
 
       <div className='flex items-center px-12 mt-4 gap-x-4'>

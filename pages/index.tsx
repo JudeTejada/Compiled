@@ -2,7 +2,6 @@ import { Main, MainHero } from '@/components/index';
 
 import { getDatabase } from '@/lib/Notion';
 import { Column, Page } from '@/lib/types';
-import { useSetPages } from '@/hooks/useSetPages';
 
 interface Props {
   resources: Column[];
@@ -10,8 +9,6 @@ interface Props {
 }
 
 export default function Home({ resources, pages }: Props) {
-  useSetPages(pages);
-
   return (
     <>
       <MainHero

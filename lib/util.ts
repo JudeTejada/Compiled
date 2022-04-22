@@ -1,19 +1,4 @@
 import { Column, Page } from '@/lib/types';
-export const pages = [
-  'React',
-  'UI & UX',
-  'Icons',
-  'Fonts',
-  'Illustrations',
-  'Color Palette',
-  'Accessibility',
-  'Mockups',
-  'Stock Photos',
-  'Design System',
-  'Miscellaneous',
-  'CSS Libaries',
-  'Performance'
-];
 
 export const filterItemsByCategory = (
   list: Column[],
@@ -27,3 +12,6 @@ export const filterItemsByCategory = (
 
   return filteredItems;
 };
+
+export const compareArraysEqual = (a: [], b: []) =>
+  a.length === b.length && a.every((v, i) => v === b[i]);
