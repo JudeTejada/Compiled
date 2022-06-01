@@ -10,7 +10,7 @@ import { useMenuAtom } from '@/hooks/useMenuAtom';
 import { pages } from '@/constants/routes';
 
 export const Sidebar: React.FC = () => {
-  const { getMenu } = useMenuAtom();
+  const { isMenuOpen } = useMenuAtom();
   const router = useRouter();
 
   const { page: currentPage } = router.query;
@@ -18,7 +18,7 @@ export const Sidebar: React.FC = () => {
   return (
     <aside
       className={`bg-secondaryDark  ${
-        getMenu ? `w-0` : `w-[18%]`
+        isMenuOpen ? `w-0` : `w-[18%]`
       } overflow-y-auto  max-h-screen py-6 transition-width duration-200 ease-in-out fixed h-screen  items-start justify-between flex-col hidden md:flex`}
     >
       <ul className='grid w-full gap-y-2'>

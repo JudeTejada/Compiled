@@ -5,12 +5,12 @@ interface Props {
 }
 
 export const Container = ({ children }: Props) => {
-  const { getMenu } = useMenuAtom();
+  const { isMenuOpen } = useMenuAtom();
 
   return (
     <section
       className={`w-full  px-5 md:px-16 py-6 ${
-        !getMenu && 'md:ml-[18%]'
+        !isMenuOpen && 'md:ml-[18%]'
       } transition-spacing duration-200 ease-in-out`}
     >
       {children}

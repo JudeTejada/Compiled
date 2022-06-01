@@ -9,13 +9,13 @@ import { ButtonLink, NavLink } from '@/components/index';
 
 export const Header: React.FC = () => {
   const router = useRouter();
-  const { setMenu, getMenu } = useMenuAtom();
+  const { page: currentPage } = router.query;
+  const { toggleMenu, isMenuOpen } = useMenuAtom();
 
   const isMobile = useIsMobile();
 
-  const { page: currentPage } = router.query;
 
-  const isNavOpen = getMenu ? `transition-opacity` : `opacity-0 invisible`;
+  const isNavOpen = isMenuOpen ? `transition-opacity` : `opacity-0 invisible`;
 
   return (
     <>
@@ -24,7 +24,7 @@ export const Header: React.FC = () => {
           <MenuIcon
             tabIndex={0}
             className='w-5 h-5 mr-6 cursor-pointer text-secondaryLight focus-visible:text-primaryLight'
-            onClick={() => setMenu(!getMenu)}
+            onClick={() => toggleMenu(!isMenuOpen)}
           />
           <NextLink passHref href='/'>
             <h1 className='text-lg font-semibold cursor-pointer'>Compiled</h1>
@@ -57,7 +57,7 @@ export const Header: React.FC = () => {
       </nav>
       <style jsx global>{`
         body {
-          overflow-y: ${isMobile && getMenu && 'hidden'};
+          overflow-y: ${isMobile && isMenuOpen && 'hidden'};
         }
       `}</style>
     </>
