@@ -9,12 +9,12 @@ interface Props {
 }
 
 export const ListCards = ({ list }: Props) => {
-  const { getMenu } = useMenuAtom();
+  const { isMenuOpen } = useMenuAtom();
 
   /*
    * change the grid column depending if sidenav is open or not
    * */
-  const gridCols = getMenu ? 'lg:grid-cols-4' : 'lg:grid-cols-3';
+  const gridCols = isMenuOpen ? 'lg:grid-cols-4' : 'lg:grid-cols-3';
 
   return (
     <section

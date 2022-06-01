@@ -2,8 +2,8 @@ import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { menuState } from '@/recoil/atom';
 
 export const useMenuAtom = () => {
-  const setMenu = useSetRecoilState(menuState);
-  const getMenu: boolean = useRecoilValue(menuState);
+  const toggleMenu = useSetRecoilState(menuState);
+  const isMenuOpen: boolean = useRecoilValue(menuState);
 
-  return { setMenu, getMenu };
+  return { toggleMenu, isMenuOpen };
 };
