@@ -16,7 +16,7 @@ export const Main = ({ list }: Props) => {
 
   const filteredList = useMemo(
     () =>
-      list.filter(list =>
+      list.filter((list) =>
         list.properties.Name.title[0].plain_text
           .toLowerCase()
           .startsWith(keyword.toLowerCase())

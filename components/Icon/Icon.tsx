@@ -19,7 +19,7 @@ export const Icon = ({ icon, isClickable, className, ...props }: IconProps) => {
 
   return (
     <button
-    tabIndex={0}
+      tabIndex={0}
       className={cls(styles.base, isClickable && styles.isClickable, className)}
       {...props}
     >

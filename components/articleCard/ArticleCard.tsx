@@ -11,9 +11,9 @@ export const ArticleCard = ({ properties }: Column) => {
   return (
     <a
       href={Link.rich_text[0].plain_text}
-      target='_blank'
-      rel='noreferrer'
-      className='focus:ring focus:ring-purpleLight'
+      target="_blank"
+      rel="noreferrer"
+      className="focus:ring focus:ring-purpleLight"
     >
       <div
         className={
@@ -24,9 +24,9 @@ export const ArticleCard = ({ properties }: Column) => {
           alt={Name.title[0].plain_text}
           src={Image.rich_text[0].plain_text}
         />
-        <div className='flex flex-col gap-4 mt-6'>
-          <h2 className='text-lg'>{Name.title[0].plain_text}</h2>
-          <p className='leading-relaxed text-secondaryLight'>
+        <div className="flex flex-col gap-4 mt-6">
+          <h2 className="text-lg">{Name.title[0].plain_text}</h2>
+          <p className="leading-relaxed text-secondaryLight">
             {renderContent(Description.rich_text[0].plain_text)}
           </p>
         </div>

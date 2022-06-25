@@ -103,7 +103,7 @@ export interface Page {
 
 export interface PageProperties {
   description: PageDescription;
-  Page: PageName; 
+  Page: PageName;
 }
 export interface PageDescription {
   id: string;

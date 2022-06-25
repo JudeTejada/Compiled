@@ -14,10 +14,11 @@ function MyApp({ Component, pageProps }: AppProps<PageProps>) {
   return (
     <RecoilRoot>
       <Sidebar />
-      <main className='flex min-h-screen'>
+      <main className="flex min-h-screen">
         <Container>
           <Header />
 
+          {/* @ts-ignore */}
           <Component {...pageProps} />
         </Container>
       </main>

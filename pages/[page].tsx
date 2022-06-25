@@ -19,7 +19,7 @@ export default function Home({ list, pages }: Props) {
 
   const { title, description } = useMemo(() => {
     const selectedPage = pages.find(
-      navPage => navPage.properties.Page.title[0].plain_text === page
+      (navPage) => navPage.properties.Page.title[0].plain_text === page
     );
 
     return {
@@ -44,7 +44,7 @@ export async function getStaticPaths() {
   const pages: Page[] = await getDatabase(process.env.NOTION_DATABASE_PAGES!);
 
   // Get the paths we want to pre-render based on posts
-  const paths = pages.map(page => ({
+  const paths = pages.map((page) => ({
     params: { page: page.properties.Page.title[0].plain_text }
   }));
 

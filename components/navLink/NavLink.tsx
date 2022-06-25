@@ -25,7 +25,7 @@ export const NavLink = ({
           isActive && 'bg-tertiaryDark'
         } ${className}`}
       >
-        <a className='w-full text-sm cursor-pointer md:text-base focus-visible:ring-purpleLight'>
+        <a className="w-full text-sm cursor-pointer md:text-base focus-visible:ring-purpleLight">
           {children}
         </a>
       </li>

@@ -23,4 +23,3 @@ export const getBlocks = async (blockId: string) => {
   });
   return response.results;
 };
-

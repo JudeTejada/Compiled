@@ -22,7 +22,6 @@ body {
   @apply bg-primaryDark text-primaryLight;
 }
 
-
-#sidebar{
-height: calc(100vh - 72px);
+#sidebar {
+  height: calc(100vh - 72px);
 }

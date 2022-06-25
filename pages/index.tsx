@@ -12,8 +12,8 @@ export default function Home({ resources, pages }: Props) {
   return (
     <>
       <MainHero
-        title='All Resources'
-        description='A compiled of all resources for web developers'
+        title="All Resources"
+        description="A compiled of all resources for web developers"
       />
       <Main list={resources} />
     </>

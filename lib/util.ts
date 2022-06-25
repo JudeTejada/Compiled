@@ -5,7 +5,7 @@ export const filterItemsByCategory = (
   categoryName: string
 ): Column[] => {
   const filteredItems = list.filter(
-    list =>
+    (list) =>
       list.properties.Category?.select.name.toLocaleLowerCase() ===
       categoryName.toLocaleLowerCase()
   );

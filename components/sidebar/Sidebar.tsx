@@ -24,29 +24,29 @@ export const Sidebar: React.FC = () => {
         isMenuOpen ? 'w-0' : 'w-[18%]'
       )}
     >
-      <ul className='grid w-full gap-y-2'>
-        <NavLink href='/' isActive={router.asPath === '/'}>
+      <ul className="grid w-full gap-y-2">
+        <NavLink href="/" isActive={router.asPath === '/'}>
           All
         </NavLink>
-        {pages.map(page => (
+        {pages.map((page) => (
           <NavLink key={page} href={`/${page}`} isActive={page === currentPage}>
             {page}
           </NavLink>
         ))}
       </ul>
-      <div className='flex items-center px-12 mt-4 gap-x-4'>
+      <div className="flex items-center px-12 mt-4 gap-x-4">
         <Image
           src={Avatar}
-          alt='Avatar of me'
-          width='35px'
-          height='35px'
-          objectFit='cover'
+          alt="Avatar of me"
+          width="35px"
+          height="35px"
+          objectFit="cover"
         />
         <a
-          rel='noreferrer'
-          target='_blank'
-          href='https://judetejada.vercel.app/'
-          className='cursor-pointer text-secondaryLight hover:underline'
+          rel="noreferrer"
+          target="_blank"
+          href="https://judetejada.vercel.app/"
+          className="cursor-pointer text-secondaryLight hover:underline"
         >
           Made by Jude
         </a>
