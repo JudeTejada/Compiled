@@ -9,9 +9,13 @@ export const ArticleCard = ({ properties }: Column) => {
   const { Description, Link, Image, Name } = properties;
 
   return (
-    <a href={Link.rich_text[0].plain_text} target='_blank' rel='noreferrer'>
+    <a
+      href={Link.rich_text[0].plain_text}
+      target='_blank'
+      rel='noreferrer'
+      className='focus:ring focus:ring-purpleLight'
+    >
       <div
-        tabIndex={0}
         className={
           'p-6 rounded-md cursor-pointer group hover:bg-secondaryDark transform hover:-translate-y-1  focus-visible:-translate-y-1  duration-200 ease-in-out'
         }

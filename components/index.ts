@@ -9,3 +9,4 @@ export * from './mainHero';
 export * from './button';
 export * from './navLink';
 export * from './BlurImage';
+export * from './Icon';

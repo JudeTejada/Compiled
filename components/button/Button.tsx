@@ -17,7 +17,7 @@ const defaultStyles = {
 };
 const buttonStyles = {
   primary:
-    'font-semibold rounded-md  text-white  bg-purple hover:bg-purpleLight focus-visible:bg-purpleLight'
+    'font-semibold rounded-md  text-white  bg-purple hover:bg-purpleLight focus:outline-none focus:ring focus:purpleLight focus-visible:bg-purpleLight'
 };
 
 export const Button = ({

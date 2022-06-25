@@ -33,7 +33,7 @@ export const SearchBar = ({ ...inputProps }) => {
         <input
           ref={inputRef}
           type='text'
-          className='w-full font-light tracking-wide bg-transparent outline-none text-secondaryLight'
+          className='w-full font-light tracking-wide bg-transparent outline-none text-secondaryLight focus:ring focus:ring-purpleLight'
           placeholder='Search by name (Press S to focus)'
           {...inputProps}
         />

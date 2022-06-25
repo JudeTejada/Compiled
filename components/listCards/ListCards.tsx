@@ -1,15 +1,15 @@
 import { ArticleCard } from '@/components/index';
 
-import { useMenuAtom } from '@/hooks/useMenuAtom';
-
 import { Column } from '@/lib/types';
+import { menuState } from '@/recoil/atom';
+import { useRecoilValue } from 'recoil';
 
 interface Props {
   list: Column[];
 }
 
 export const ListCards = ({ list }: Props) => {
-  const { isMenuOpen } = useMenuAtom();
+  const isMenuOpen: boolean = useRecoilValue(menuState);
 
   /*
    * change the grid column depending if sidenav is open or not
