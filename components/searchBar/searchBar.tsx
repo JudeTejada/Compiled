@@ -1,29 +1,23 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import { SearchIcon } from '@heroicons/react/outline';
 
-export const SearchBar = ({ ...inputProps }) => {
-  const [hasPress, setHasPress] = useState(false);
+export const SearchBar = (
+  inputProps: React.InputHTMLAttributes<HTMLInputElement>
+) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('keypress', handleKeyDown);
 
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('keypress', handleKeyDown);
     };
   }, []);
 
-  useEffect(() => {
-    if (hasPress && inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, [hasPress]);
-
   const handleKeyDown = (e: KeyboardEvent): void => {
-    if (e.key === 's') {
-      setHasPress(true);
-    }
+    e.preventDefault();
+    if (e.key === '/' && inputRef.current) inputRef.current.focus();
   };
 
   return (
@@ -34,7 +28,7 @@ export const SearchBar = ({ ...inputProps }) => {
           ref={inputRef}
           type='text'
           className='w-full font-light tracking-wide bg-transparent outline-none text-secondaryLight focus:ring focus:ring-purpleLight'
-          placeholder='Search by name (Press S to focus)'
+          placeholder='Search by name (Press / to focus)'
           {...inputProps}
         />
       </div>
