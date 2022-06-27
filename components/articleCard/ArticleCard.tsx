@@ -1,5 +1,5 @@
 import { Column } from '@/lib/types';
-import { BlurImage } from '@/components/.';
+import { BlurImage } from '@/components';
 
 export const ArticleCard = ({ properties }: Column) => {
   // means content is over three lines
@@ -13,7 +13,7 @@ export const ArticleCard = ({ properties }: Column) => {
       href={Link.rich_text[0].plain_text}
       target="_blank"
       rel="noreferrer"
-      className="focus:ring focus:ring-purpleLight"
+      className="focus:ring focus:ring-purpleLight focus:rounded-sm"
     >
       <div
         className={

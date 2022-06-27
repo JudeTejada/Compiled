@@ -1,18 +1,22 @@
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+
+import shallow from 'zustand/shallow';
 
 import { pages } from '@/constants/routes';
 
 import { useIsMobile } from '@/hooks/index';
-import { ButtonLink, NavLink, Icon } from '@/components/index';
-import { menuState } from '@/recoil/atom';
+import { ButtonLink, NavLink, Icon } from '@/components';
+import { useStore } from '@/store';
 
 export const Header: React.FC = () => {
   const router = useRouter();
   const { page: currentPage } = router.query;
-  const toggleMenu = useSetRecoilState(menuState);
-  const isMenuOpen: boolean = useRecoilValue(menuState);
+
+  const [isMenuOpen, setIsMenuOpen] = useStore(
+    (state) => [state.isMenuOpen, state.toggleMenu],
+    shallow
+  );
 
   const isMobile = useIsMobile();
 
@@ -25,11 +29,13 @@ export const Header: React.FC = () => {
       <header className="relative flex justify-between">
         <div className="flex items-center justify-between ">
           <Icon
+            role="menu"
             icon="menu"
             isClickable
             className="mr-6"
-            onClick={() => toggleMenu(!isMenuOpen)}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
           />
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)}>click me</button>
 
           <NextLink passHref href="/">
             <h1 className="text-lg font-semibold cursor-pointer">Compiled</h1>

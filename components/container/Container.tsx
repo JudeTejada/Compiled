@@ -1,12 +1,11 @@
-import { menuState } from '@/recoil/atom';
-import { useRecoilValue } from 'recoil';
+import { useStore } from '@/store';
 
 interface Props {
   children?: React.ReactChild | React.ReactChild[];
 }
 
 export const Container = ({ children }: Props) => {
-  const isMenuOpen: boolean = useRecoilValue(menuState);
+  const isMenuOpen = useStore((state) => state.isMenuOpen);
 
   return (
     <section

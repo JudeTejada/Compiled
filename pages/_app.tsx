@@ -1,10 +1,9 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
-import { RecoilRoot } from 'recoil';
 
 import { Page } from '@/lib/types';
 
-import { Sidebar, Container, Header } from '@/components/index';
+import { Sidebar, Container, Header } from '@/components';
 
 interface PageProps {
   pages: Page[];
@@ -12,7 +11,7 @@ interface PageProps {
 
 function MyApp({ Component, pageProps }: AppProps<PageProps>) {
   return (
-    <RecoilRoot>
+    <>
       <Sidebar />
       <main className="flex min-h-screen">
         <Container>
@@ -22,7 +21,7 @@ function MyApp({ Component, pageProps }: AppProps<PageProps>) {
           <Component {...pageProps} />
         </Container>
       </main>
-    </RecoilRoot>
+    </>
   );
 }
 

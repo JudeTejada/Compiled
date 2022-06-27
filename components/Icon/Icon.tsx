@@ -8,10 +8,12 @@ interface IconProps {
   isClickable?: boolean;
   className?: string;
   onClick?: () => void;
+  role?: string;
 }
 const styles = {
   base: 'w-5 h-5 text-secondaryLight',
-  isClickable: 'focus:ring focus:ring-purpleLight cursor-pointer '
+  isClickable:
+    'focus-visible:ring focus-visible:ring-purpleLight focus-visible:rounded-sm cursor-pointer '
 };
 
 export const Icon = ({ icon, isClickable, className, ...props }: IconProps) => {
@@ -19,7 +21,6 @@ export const Icon = ({ icon, isClickable, className, ...props }: IconProps) => {
 
   return (
     <button
-      tabIndex={0}
       className={cls(styles.base, isClickable && styles.isClickable, className)}
       {...props}
     >

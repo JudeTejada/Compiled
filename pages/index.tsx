@@ -1,4 +1,4 @@
-import { Main, MainHero } from '@/components/index';
+import { Main, MainHero } from '@/components';
 
 import { getDatabase } from '@/lib/Notion';
 import { Column, Page } from '@/lib/types';

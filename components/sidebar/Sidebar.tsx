@@ -1,17 +1,16 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import cls from 'classnames';
-import { useRecoilValue } from 'recoil';
 
 import Avatar from '../../public/images/avatar.png';
 
-import { NavLink } from '@/components/index';
+import { NavLink } from '@/components';
+import { useStore } from '@/store';
 
 import { pages } from '@/constants/routes';
-import { menuState } from '@/recoil/atom';
 
 export const Sidebar: React.FC = () => {
-  const isMenuOpen: boolean = useRecoilValue(menuState);
+  const isMenuOpen = useStore((state) => state.isMenuOpen);
 
   const router = useRouter();
 

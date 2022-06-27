@@ -1,7 +1,6 @@
 import NextLink from 'next/link';
 
-import { useSetRecoilState } from 'recoil';
-import { menuState } from '@/recoil/atom';
+import { useStore } from '@/store';
 
 interface Props {
   className?: string;
@@ -15,7 +14,7 @@ export const NavLink = ({
   isActive,
   href
 }: React.PropsWithChildren<Props>) => {
-  const toggleMenu = useSetRecoilState(menuState);
+  const toggleMenu = useStore((state) => state.toggleMenu);
 
   return (
     <NextLink href={href} passHref>

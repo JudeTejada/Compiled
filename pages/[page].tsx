@@ -2,7 +2,7 @@ import { GetStaticProps, GetStaticPropsContext } from 'next';
 import { useRouter } from 'next/router';
 import { useMemo } from 'react';
 
-import { Main, MainHero } from '@/components/index';
+import { Main, MainHero } from '@/components';
 
 import { getDatabase } from '@/lib/Notion';
 import { Column, Page } from '@/lib/types';
