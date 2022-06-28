@@ -1,7 +1,7 @@
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
-
 import shallow from 'zustand/shallow';
+import { useMediaQuery } from 'react-responsive';
 
 import { pages } from '@/constants/routes';
 
@@ -9,7 +9,7 @@ import { useIsMobile } from '@/hooks/index';
 import { ButtonLink, NavLink, Icon } from '@/components';
 import { useStore } from '@/store';
 
-export const Header: React.FC = () => {
+export const Header = () => {
   const router = useRouter();
   const { page: currentPage } = router.query;
 
@@ -18,7 +18,7 @@ export const Header: React.FC = () => {
     shallow
   );
 
-  const isMobile = useIsMobile();
+  const isMobile = useMediaQuery({ query: '(max-width: 500px)' });
 
   const isNavOpenStyles = isMenuOpen
     ? `transition-opacity`
@@ -35,7 +35,6 @@ export const Header: React.FC = () => {
             className="mr-6"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           />
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)}>click me</button>
 
           <NextLink passHref href="/">
             <h1 className="text-lg font-semibold cursor-pointer">Compiled</h1>

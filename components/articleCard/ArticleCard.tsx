@@ -2,11 +2,11 @@ import { Column } from '@/lib/types';
 import { BlurImage } from '@/components';
 
 export const ArticleCard = ({ properties }: Column) => {
+  const { Description, Link, Image, Name } = properties;
+
   // means content is over three lines
   const renderContent = (content: string): string =>
     content.length > 92 ? content.slice(0, 92).concat('...') : content;
-
-  const { Description, Link, Image, Name } = properties;
 
   return (
     <a
