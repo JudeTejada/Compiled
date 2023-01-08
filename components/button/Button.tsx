@@ -48,10 +48,10 @@ export const ButtonLink = ({
   type
 }: React.PropsWithChildren<ButtonLinkProps>) => {
   return (
-    <NextLink passHref href={href}>
-      <button className={` ${ButtonSwitchStyles(type)} ${className}`}>
+    <button className={` ${ButtonSwitchStyles(type)} ${className}`}>
+      <NextLink passHref href={href}>
         {children}
-      </button>
-    </NextLink>
+      </NextLink>
+    </button>
   );
 };

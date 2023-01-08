@@ -5,6 +5,9 @@ import { RecoilRoot } from 'recoil';
 import { Page } from '@/lib/types';
 
 import { Sidebar, Container, Header } from '@/components/index';
+import { Inter } from '@next/font/google';
+
+const inter = Inter();
 
 interface PageProps {
   pages: Page[];
@@ -13,14 +16,16 @@ interface PageProps {
 function MyApp({ Component, pageProps }: AppProps<PageProps>) {
   return (
     <RecoilRoot>
-      <Sidebar />
-      <main className='flex min-h-screen'>
-        <Container>
-          <Header />
+      <div className={inter.className}>
+        <Sidebar />
+        <main className='flex min-h-screen'>
+          <Container>
+            <Header />
 
-          <Component {...pageProps} />
-        </Container>
-      </main>
+            <Component {...pageProps} />
+          </Container>
+        </main>
+      </div>
     </RecoilRoot>
   );
 }

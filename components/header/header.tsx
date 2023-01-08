@@ -4,15 +4,18 @@ import { Bars3Icon } from '@heroicons/react/24/outline';
 
 import { pages } from '@/constants/routes';
 
-import { useMenuAtom, useIsMobile } from '@/hooks/index';
+import { useMenuAtom } from '@/hooks/index';
 import { ButtonLink, NavLink } from '@/components/index';
+import { useMediaQuery } from 'react-responsive';
 
 export const Header: React.FC = () => {
   const router = useRouter();
   const { page: currentPage } = router.query;
   const { toggleMenu, isMenuOpen } = useMenuAtom();
 
-  const isMobile = useIsMobile();
+  const isMobile = useMediaQuery({
+    query: '(max-width: 500px)'
+  });
 
   const isNavOpen = isMenuOpen ? `transition-opacity` : `opacity-0 invisible`;
 
@@ -25,9 +28,11 @@ export const Header: React.FC = () => {
             className='w-5 h-5 mr-6 cursor-pointer text-secondaryLight focus-visible:text-primaryLight'
             onClick={() => toggleMenu(!isMenuOpen)}
           />
-          <NextLink passHref href='/'>
-            <h1 className='text-lg font-semibold cursor-pointer'>Compiled</h1>
-          </NextLink>
+          <h1 className='text-lg font-semibold cursor-pointer'>
+            <NextLink passHref href='/'>
+              Compiled
+            </NextLink>
+          </h1>
         </div>
         <div>
           <ButtonLink href='/submit' type='primary'>

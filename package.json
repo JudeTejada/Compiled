@@ -9,11 +9,13 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.13",
+    "@next/font": "^13.1.1",
     "@notionhq/client": "^2.2.3",
     "next": "^13.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.41.5",
+    "react-responsive": "^9.0.2",
     "recoil": "^0.7.6"
   },
   "devDependencies": {

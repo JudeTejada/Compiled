@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 
 import { Main, MainHero } from '@/components/index';
 
-import { getDatabase, notion } from '@/lib/Notion';
+import { getDatabase } from '@/lib/Notion';
 import { Column, Page } from '@/lib/types';
 
 interface Props {
@@ -11,7 +11,6 @@ interface Props {
   page: Page;
 }
 
-// @ts-ignore
 export default function Home({ list, page }: Props) {
   const router = useRouter();
   const { page: queryPage } = router.query;
@@ -76,7 +75,6 @@ export const getStaticProps: GetStaticProps = async ({
   return {
     props: {
       list: resources,
-      // list: filteredItems,
       page
     },
 
