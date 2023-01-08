@@ -5,10 +5,9 @@ import { Column, Page } from '@/lib/types';
 
 interface Props {
   resources: Column[];
-  pages: Page[];
 }
 
-export default function Home({ resources, pages }: Props) {
+export default function Home({ resources }: Props) {
   return (
     <>
       <MainHero
@@ -25,12 +24,9 @@ export const getStaticProps = async () => {
     process.env.NOTION_DATABASE_ID!
   );
 
-  const pages: Page[] = await getDatabase(process.env.NOTION_DATABASE_PAGES!);
-
   return {
     props: {
-      resources,
-      pages
+      resources
     },
 
     revalidate: 60

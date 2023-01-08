@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 
-import { SearchIcon } from '@heroicons/react/outline';
+import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 
 export const SearchBar = ({ ...inputProps }) => {
   const [hasPress, setHasPress] = useState(false);
@@ -29,7 +29,7 @@ export const SearchBar = ({ ...inputProps }) => {
   return (
     <div className='w-full my-12'>
       <div className='flex items-center'>
-        <SearchIcon className='w-5 h-5 mr-6 text-secondaryLight' />
+        <MagnifyingGlassIcon className='w-5 h-5 mr-6 text-secondaryLight' />
         <input
           ref={inputRef}
           type='text'

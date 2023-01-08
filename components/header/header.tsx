@@ -1,6 +1,6 @@
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
-import { MenuIcon } from '@heroicons/react/outline';
+import { Bars3Icon } from '@heroicons/react/24/outline';
 
 import { pages } from '@/constants/routes';
 
@@ -14,14 +14,13 @@ export const Header: React.FC = () => {
 
   const isMobile = useIsMobile();
 
-
   const isNavOpen = isMenuOpen ? `transition-opacity` : `opacity-0 invisible`;
 
   return (
     <>
       <header className='relative flex justify-between'>
         <div className='flex items-center justify-between '>
-          <MenuIcon
+          <Bars3Icon
             tabIndex={0}
             className='w-5 h-5 mr-6 cursor-pointer text-secondaryLight focus-visible:text-primaryLight'
             onClick={() => toggleMenu(!isMenuOpen)}

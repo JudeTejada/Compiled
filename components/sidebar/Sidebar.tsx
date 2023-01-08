@@ -37,9 +37,11 @@ export const Sidebar: React.FC = () => {
         <Image
           src={Avatar}
           alt='Avatar of me'
-          width='35px'
-          height='35px'
-          objectFit='cover'
+          width={35}
+          height={35}
+          style={{
+            objectFit: 'cover'
+          }}
         />
         <a
           rel='noreferrer'

@@ -1,12 +1,16 @@
 import { Client } from '@notionhq/client';
 
-const notion = new Client({
+export const notion = new Client({
   auth: process.env.NOTION_TOKEN
 });
 
-export const getDatabase = async <TData>(databaseId: string) => {
+export const getDatabase = async <TData>(
+  databaseId: string,
+  notionParams?: any
+) => {
   const response = await notion.databases.query({
-    database_id: databaseId
+    database_id: databaseId,
+    ...notionParams
   });
   return response.results as unknown as TData;
 };
@@ -23,4 +27,3 @@ export const getBlocks = async (blockId: string) => {
   });
   return response.results;
 };
-

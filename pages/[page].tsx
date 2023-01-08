@@ -1,38 +1,32 @@
 import { GetStaticProps, GetStaticPropsContext } from 'next';
 import { useRouter } from 'next/router';
-import { useMemo } from 'react';
 
 import { Main, MainHero } from '@/components/index';
 
-import { getDatabase } from '@/lib/Notion';
+import { getDatabase, notion } from '@/lib/Notion';
 import { Column, Page } from '@/lib/types';
-import { filterItemsByCategory } from '@/lib/util';
 
 interface Props {
   list: Column[];
-  pages: Page[];
+  page: Page;
 }
 
-export default function Home({ list, pages }: Props) {
+// @ts-ignore
+export default function Home({ list, page }: Props) {
   const router = useRouter();
-  const { page } = router.query;
+  const { page: queryPage } = router.query;
 
-  const { title, description } = useMemo(() => {
-    const selectedPage = pages.find(
-      navPage => navPage.properties.Page.title[0].plain_text === page
-    );
-
-    return {
-      title: selectedPage?.properties.Page.title[0].plain_text,
-      description: selectedPage?.properties.description.rich_text[0].plain_text
-    };
-  }, [page, pages]);
+  const title = page[0]?.properties?.Page?.title[0]?.plain_text ?? '';
+  // @ts-isgnore
+  const description =
+    // @ts-isgnore
+    page[0]?.properties?.description?.rich_text[0]?.plain_text ?? '';
 
   return (
     <>
       <MainHero
-        title={title || (page as string)}
-        description={description || `A compiled resources of ${page}`}
+        title={title}
+        description={description || `A compiled resources of ${queryPage}`}
       />
 
       <Main list={list} />
@@ -56,19 +50,34 @@ export async function getStaticPaths() {
 export const getStaticProps: GetStaticProps = async ({
   params
 }: GetStaticPropsContext) => {
+  const resourceCategory = params?.page as string;
+
   const resources: Column[] = await getDatabase(
-    process.env.NOTION_DATABASE_ID!
+    process.env.NOTION_DATABASE_ID!,
+    {
+      filter: {
+        property: 'Category',
+        select: {
+          equals: resourceCategory
+        }
+      }
+    }
   );
-  const pages: Page[] = await getDatabase(process.env.NOTION_DATABASE_PAGES!);
 
-  const page = params?.page as string;
-
-  const filteredItems = filterItemsByCategory(resources, page);
+  const page: Page = await getDatabase(process.env.NOTION_DATABASE_PAGES!, {
+    filter: {
+      property: 'Page',
+      rich_text: {
+        equals: resourceCategory
+      }
+    }
+  });
 
   return {
     props: {
-      list: filteredItems,
-      pages
+      list: resources,
+      // list: filteredItems,
+      page
     },
 
     revalidate: 60
