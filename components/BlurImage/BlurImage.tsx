@@ -8,9 +8,8 @@ export const BlurImage = ({ alt, ...props }: { src: string; alt: string }) => {
       <Image
         {...props}
         alt={alt}
-        layout='fill'
-        objectFit='cover'
-        className={` rounded-md  ${
+        fill
+        className={` rounded-md object-cover  ${
           isLoading ? 'scale-110 blur-xl ' : 'scale-100 blur-0'
         }`}
         onLoadingComplete={() => setLoading(false)}
