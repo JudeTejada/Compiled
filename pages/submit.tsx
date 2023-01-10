@@ -22,7 +22,7 @@ enum Categories {
   Mockups = 'Mockups',
   StockPhotos = 'Stock Photos',
   DesignSystem = 'Design System',
-  CSSLibraries = 'CSS Libraries',
+  CSSLibraries = 'CSS Tools',
   Performance = 'Performance',
   React = 'React',
   CSSTools = 'CSS Tools'

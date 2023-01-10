@@ -10,6 +10,6 @@ export const pages = [
   'Stock Photos',
   'Design System',
   'Miscelleanous',
-  'CSS Libraries',
+  'CSS Tools',
   'Performance'
 ];
