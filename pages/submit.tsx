@@ -5,6 +5,14 @@ import { Button } from '@/components/index';
 import { getDatabase } from '@/lib/Notion';
 import { Page } from '@/lib/types';
 
+export const isUrl = (string: string): boolean => {
+  try {
+    return Boolean(new URL(string));
+  } catch (e) {
+    return false;
+  }
+};
+
 enum Categories {
   Icons = 'Icons',
   Fonts = 'Fonts',
@@ -37,9 +45,11 @@ const SubmitPage = ({ pages }: { pages: Page[] }) => {
     handleSubmit,
     formState: { errors }
   } = useForm<IFormInput>();
+
+  console.log(errors, 'errors');
   const onSubmit: SubmitHandler<IFormInput> = async data => {
     try {
-      setSubmitEntry({ ...submitEntry, isLoading: true });
+      setSubmitEntry({ ...submitEntry, isLoading: true, isError: false });
 
       const res = await fetch('/api/submit', {
         method: 'POST',
@@ -47,7 +57,7 @@ const SubmitPage = ({ pages }: { pages: Page[] }) => {
         body: JSON.stringify(data)
       });
 
-      const dataRes = await res.json();
+      if (!res.ok) throw new Error();
 
       setSubmitEntry({ ...submitEntry, isLoading: false, isSuccess: true });
     } catch (error) {
@@ -81,12 +91,20 @@ const SubmitPage = ({ pages }: { pages: Page[] }) => {
         <div className='w-full'>
           <label className='block mb-4 text-base'>Link</label>
           <input
-            {...register('link', { required: true })}
+            {...register('link', {
+              required: true,
+              minLength: 1,
+              validate: value => isUrl(value)
+            })}
             type='text'
             className='w-full p-2 px-4 bg-transparent border rounded-md border-borderLight text-secondaryLight focus-within:border-secondaryLight'
           />
-          {errors?.link && (
-            <span className='block mt-3 text-red-500'>Link is required</span>
+          {errors?.link?.type === 'required' && (
+            <span className='block mt-3 text-red-500'>Url is required</span>
+          )}
+
+          {errors?.link?.type === 'validate' && (
+            <span className='block mt-3 text-red-500'>Enter a valid url</span>
           )}
         </div>
         <div className='w-full'>
