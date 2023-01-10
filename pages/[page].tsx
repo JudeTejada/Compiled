@@ -15,10 +15,10 @@ export default function Home({ list, page }: Props) {
   const router = useRouter();
   const { page: queryPage } = router.query;
 
+  // @ts-ignore
   const title = page[0]?.properties?.Page?.title[0]?.plain_text ?? '';
-  // @ts-isgnore
   const description =
-    // @ts-isgnore
+    // @ts-ignore
     page[0]?.properties?.description?.rich_text[0]?.plain_text ?? '';
 
   return (
