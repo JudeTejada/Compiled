@@ -4,7 +4,6 @@ import Image from 'next/image';
 export const BlurImage = ({ alt, ...props }: { src: string; alt: string }) => {
   const [isLoading, setLoading] = useState(true);
 
-  console.log(props.src, 'src');
   return (
     <div className='relative flex-shrink-0 pb-52 '>
       <Image
@@ -12,9 +11,6 @@ export const BlurImage = ({ alt, ...props }: { src: string; alt: string }) => {
         alt={alt}
         fill
         className={` rounded-md object-cover
-
-
-
         ${
           isLoading
             ? 'grayscale blur-2xl scale-110 '
