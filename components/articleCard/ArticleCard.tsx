@@ -8,7 +8,10 @@ export const ArticleCard = ({ properties }: Column) => {
 
   const { Description, Link, Image, Name } = properties;
 
+  console.log(Name?.title[0]?.plain_text, 'Name.title[0].plain_text');
+  console.log(Image?.rich_text[0]?.plain_text, 'Image.rich_text[0].plain_text');
   return (
+
     <a href={Link.rich_text[0].plain_text} target='_blank' rel='noreferrer'>
       <div
         tabIndex={0}
@@ -17,8 +20,8 @@ export const ArticleCard = ({ properties }: Column) => {
         }
       >
         <BlurImage
-          alt={Name.title[0].plain_text}
-          src={Image.rich_text[0].plain_text}
+          alt={Name?.title[0]?.plain_text}
+          src={Image?.rich_text[0]?.plain_text}
         />
         <div className='flex flex-col gap-4 mt-6'>
           <h2 className='text-lg'>{Name.title[0].plain_text}</h2>
