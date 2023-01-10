@@ -46,7 +46,6 @@ const SubmitPage = ({ pages }: { pages: Page[] }) => {
     formState: { errors }
   } = useForm<IFormInput>();
 
-  console.log(errors, 'errors');
   const onSubmit: SubmitHandler<IFormInput> = async data => {
     try {
       setSubmitEntry({ ...submitEntry, isLoading: true, isError: false });
