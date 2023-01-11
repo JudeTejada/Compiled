@@ -17,9 +17,7 @@ export const ListCards = ({ list }: Props) => {
   const gridCols = isMenuOpen ? 'lg:grid-cols-4' : 'lg:grid-cols-3';
 
   return (
-    <section
-      className={`grid  gap-6 ${gridCols} md:grid-cols-2 sm:grid-cols-1`}
-    >
+    <section className={`grid  gap-6 ${gridCols}  grid-cols-1 sm:grid-cols-2 `}>
       {list.map((item, i) => (
         <ArticleCard key={item.id} {...item} index={i} />
       ))}

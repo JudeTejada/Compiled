@@ -3,7 +3,6 @@ import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { Bars3Icon } from '@heroicons/react/24/outline';
 
-
 import { pages } from '@/constants/routes';
 
 import { useMenuAtom } from '@/hooks/index';

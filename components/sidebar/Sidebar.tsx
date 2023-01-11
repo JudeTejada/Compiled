@@ -36,7 +36,7 @@ export const Sidebar: React.FC = () => {
         ))}
       </ul>
 
-      <div className='flex items-center px-12 mt-4 gap-x-4'>
+      <div className='flex items-center justify-center flex-col md:flex-row  md:lg-6 lg:px-12   mt-4 gap-x-4'>
         <Image
           src={Avatar}
           alt='Avatar of me'

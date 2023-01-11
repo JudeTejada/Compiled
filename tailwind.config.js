@@ -24,6 +24,9 @@ module.exports = {
       transitionProperty: {
         width: ' width',
         spacing: 'margin, padding'
+      },
+      screens: {
+        sm: '500px'
       }
     }
   },

@@ -21,7 +21,7 @@ export const NavLink = ({
   return (
     <li
       onClick={() => toggleMenu(false)}
-      className={`w-full px-6  md:px-12 py-3   hover:bg-tertiaryDark ${
+      className={`w-full px-3  lg:px-12 py-3   hover:bg-tertiaryDark ${
         isActive && 'bg-tertiaryDark'
       } ${className}`}
       {...props}

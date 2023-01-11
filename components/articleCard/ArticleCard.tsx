@@ -18,7 +18,7 @@ export const ArticleCard = (props: ArticleCardProps) => {
       <div
         tabIndex={0}
         className={
-          'p-6 rounded-md cursor-pointer group hover:bg-secondaryDark transform hover:-translate-y-1  focus-visible:-translate-y-1  duration-200 ease-in-out'
+          ' rounded-md cursor-pointer group hover:bg-secondaryDark transform hover:-translate-y-1  focus-visible:-translate-y-1  duration-200 ease-in-out'
         }
       >
         <BlurImage
@@ -31,7 +31,7 @@ export const ArticleCard = (props: ArticleCardProps) => {
               (max-width: 1200px) 50vw,
               33vw'
         />
-        <div className='flex flex-col gap-4 mt-6'>
+        <div className='flex flex-col gap-4 mt-6 p-4'>
           <h2 className='text-lg'>{Name.title[0].plain_text}</h2>
           <p className='leading-relaxed text-secondaryLight'>
             {renderContent(Description.rich_text[0].plain_text)}

@@ -31,7 +31,6 @@ export default function Home({ list, page }: Props) {
         <meta
           property='og:image'
           content={`${baseUrl}/api/og?title=${title}&description=${description}`}
-          
         />
       </Head>
       <NextSeo title={`Compiled - ${title}`} description={description} />
