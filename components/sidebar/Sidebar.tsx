@@ -17,9 +17,12 @@ export const Sidebar: React.FC = () => {
 
   return (
     <aside
-      className={`bg-secondaryDark  ${
+      className={`bg-secondaryDark   ${
         isMenuOpen ? `w-0` : `w-[18%]`
-      } overflow-y-auto  max-h-screen py-6 transition-width duration-200 ease-in-out fixed h-screen  items-start justify-between flex-col hidden md:flex`}
+      } overflow-y-auto  max-h-screen py-6 transition-width duration-200 ease-in-out fixed h-screen  items-start justify-between flex-col hidden md:flex `}
+      style={{
+        zIndex: 10
+      }}
     >
       <ul className='grid w-full gap-y-2'>
         <NavLink href='/' isActive={router.asPath === '/'}>

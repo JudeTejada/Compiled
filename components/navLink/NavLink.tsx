@@ -6,13 +6,15 @@ interface Props {
   className?: string;
   isActive?: boolean;
   href: string;
+  onClick?: () => void;
 }
 
 export const NavLink = ({
   children,
   className = '',
   isActive,
-  href
+  href,
+  ...props
 }: React.PropsWithChildren<Props>) => {
   const { toggleMenu } = useMenuAtom();
 
@@ -22,6 +24,7 @@ export const NavLink = ({
       className={`w-full px-6  md:px-12 py-3   hover:bg-tertiaryDark ${
         isActive && 'bg-tertiaryDark'
       } ${className}`}
+      {...props}
     >
       <NextLink
         href={href}

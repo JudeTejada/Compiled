@@ -5,6 +5,7 @@ import { Main, MainHero } from '@/components/index';
 
 import { getDatabase } from '@/lib/Notion';
 import { Column, Page } from '@/lib/types';
+import { NextSeo } from 'next-seo';
 
 interface Props {
   list: Column[];
@@ -23,6 +24,7 @@ export default function Home({ list, page }: Props) {
 
   return (
     <>
+      <NextSeo title={`Compiled - ${title}`} description={description} />
       <MainHero
         title={title}
         description={description || `A compiled resources of ${queryPage}`}

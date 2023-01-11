@@ -4,6 +4,7 @@ interface ButtonProps {
   type: string;
   className?: string;
   disabled?: boolean;
+  onClick?: () => void;
 }
 
 interface ButtonLinkProps extends ButtonProps {
@@ -29,12 +30,14 @@ export const Button = ({
   children,
   className,
   type,
-  disabled
+  disabled,
+  ...props
 }: React.PropsWithChildren<ButtonProps>) => {
   return (
     <button
       className={` ${ButtonSwitchStyles(type, disabled)} ${className} `}
       disabled={disabled}
+      {...props}
     >
       {children}
     </button>
@@ -45,10 +48,11 @@ export const ButtonLink = ({
   children,
   href,
   className,
-  type
+  type,
+  ...props
 }: React.PropsWithChildren<ButtonLinkProps>) => {
   return (
-    <button className={` ${ButtonSwitchStyles(type)} ${className}`}>
+    <button className={` ${ButtonSwitchStyles(type)} ${className}`} {...props}>
       <NextLink passHref href={href}>
         {children}
       </NextLink>

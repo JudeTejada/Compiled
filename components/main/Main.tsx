@@ -28,7 +28,14 @@ export const Main = ({ list }: Props) => {
     <>
       <SearchBar value={keyword} onChange={handleOnChange} />
 
-      <ListCards list={filteredList} />
+      {filteredList.length > 0 && <ListCards list={filteredList} />}
+      {!filteredList.length && (
+        <div className='flex items-center justify-center'>
+          <p className='text-sm text-secondaryLight'>
+            It appears there's no resource related to "{keyword}"
+          </p>
+        </div>
+      )}
     </>
   );
 };

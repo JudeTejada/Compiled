@@ -20,8 +20,8 @@ export const ListCards = ({ list }: Props) => {
     <section
       className={`grid  gap-6 ${gridCols} md:grid-cols-2 sm:grid-cols-1`}
     >
-      {list.map(item => (
-        <ArticleCard key={item.id} {...item} />
+      {list.map((item, i) => (
+        <ArticleCard key={item.id} {...item} index={i} />
       ))}
     </section>
   );

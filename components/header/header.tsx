@@ -1,6 +1,8 @@
+// 'use-client'
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { Bars3Icon } from '@heroicons/react/24/outline';
+import clsx from 'clsx';
 
 import { pages } from '@/constants/routes';
 
@@ -21,7 +23,11 @@ export const Header: React.FC = () => {
 
   return (
     <>
-      <header className='relative flex justify-between'>
+      <header
+        className={`flex justify-between ${clsx(
+          isMobile && 'fixed inset-x-0  bg-secondaryDark z-50 px-6 top-0 py-4'
+        )}`}
+      >
         <div className='flex items-center justify-between '>
           <Bars3Icon
             tabIndex={0}
@@ -41,7 +47,8 @@ export const Header: React.FC = () => {
         </div>
       </header>
       <nav
-        className={`fixed left-0 z-50 w-full bg-secondaryDark top-20 block md:hidden ${isNavOpen} overflow-y-auto  max-h-screen `}
+        className={`fixed left-0 z-50 w-full bg-secondaryDark top-20 block md:hidden ${isNavOpen} overflow-y-auto `}
+        style={{ height: 'calc(100vh - 48px' }}
       >
         <ul className='grid w-full gap-y-2'>
           <NavLink isActive={router.asPath === '/'} href='/'>
@@ -53,6 +60,10 @@ export const Header: React.FC = () => {
               key={page}
               href={`/${page}`}
               isActive={page === currentPage}
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                toggleMenu(false);
+              }}
             >
               {page}
             </NavLink>

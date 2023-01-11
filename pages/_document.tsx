@@ -4,7 +4,12 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang='en'>
-        <Head></Head>
+        <Head>
+          <meta
+            property='og:image'
+            content='https://compiled.vercel.app/api/static'
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />
