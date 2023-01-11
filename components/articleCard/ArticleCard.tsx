@@ -26,6 +26,7 @@ export const ArticleCard = (props: ArticleCardProps) => {
           src={Image?.rich_text[0]?.plain_text}
           // loads first three images
           priority={index <= 2}
+          loading={index <= 2 ? 'eager' : 'lazy'}
           sizes='(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               33vw'
