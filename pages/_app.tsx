@@ -11,7 +11,7 @@ import { useScrollToBottom } from '@/hooks/use-scroll-to-bottom';
 import { useRef } from 'react';
 import Head from 'next/head';
 
-const inter = Inter();
+const inter = Inter({subsets:['latin']});
 
 interface PageProps {
   pages: Page[];

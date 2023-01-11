@@ -4,19 +4,16 @@ import { getDatabase } from '@/lib/Notion';
 import { Column } from '@/lib/types';
 import { NextSeo } from 'next-seo';
 import Head from 'next/head';
-import { useMediaQuery } from 'react-responsive';
 
 interface Props {
   resources: Column[];
 }
 
 export default function Home({ resources }: Props) {
-  const isMobile = useMediaQuery({
-    query: '(max-width: 500px)'
-  });
-
   const baseUrl = process.env.NEXT_PUBLIC_HOST;
 
+
+  console.log(`${baseUrl}/api/og`)
   return (
     <>
       <Head>
