@@ -3,6 +3,7 @@ import { Main, MainHero } from '@/components/index';
 import { getDatabase } from '@/lib/Notion';
 import { Column } from '@/lib/types';
 import { NextSeo } from 'next-seo';
+import Head from 'next/head';
 import { useMediaQuery } from 'react-responsive';
 
 interface Props {
@@ -14,13 +15,17 @@ export default function Home({ resources }: Props) {
     query: '(max-width: 500px)'
   });
 
+  const baseUrl = process.env.NEXT_PUBLIC_HOST;
+
   return (
     <>
+      <Head>
+        <meta property='og:image' content={`${baseUrl}/api/og`} />
+      </Head>
       <NextSeo
         title='Compiled'
         description='A compiled of all resources for web developers'
       />
-      
 
       <MainHero
         title='All Resources'

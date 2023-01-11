@@ -2,7 +2,7 @@
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { Bars3Icon } from '@heroicons/react/24/outline';
-import clsx from 'clsx';
+
 
 import { pages } from '@/constants/routes';
 
@@ -24,9 +24,9 @@ export const Header: React.FC = () => {
   return (
     <>
       <header
-        className={`flex justify-between ${clsx(
+        className={`flex justify-between ${
           isMobile && 'fixed inset-x-0  bg-secondaryDark z-50 px-6 top-0 py-4'
-        )}`}
+        }`}
       >
         <div className='flex items-center justify-between '>
           <Bars3Icon

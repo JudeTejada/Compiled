@@ -9,6 +9,7 @@ import { Inter } from '@next/font/google';
 import { ChevronUpIcon } from '@heroicons/react/24/outline';
 import { useScrollToBottom } from '@/hooks/use-scroll-to-bottom';
 import { useRef } from 'react';
+import Head from 'next/head';
 
 const inter = Inter();
 
@@ -26,6 +27,7 @@ function MyApp({ Component, pageProps }: AppProps<PageProps>) {
 
   return (
     <RecoilRoot>
+
       <div className={inter.className}>
         <Sidebar />
         <main className='flex min-h-screen relative' ref={mainRef}>

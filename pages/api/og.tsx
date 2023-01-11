@@ -1,11 +1,24 @@
 import { ImageResponse } from '@vercel/og';
+import { NextRequest } from 'next/server';
 
 export const config = {
   runtime: 'edge'
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default function () {
+export default function (req: NextRequest) {
+  const { searchParams } = new URL(req.url);
+
+  const hasTitle = searchParams.has('title');
+  const hasDescription = searchParams.has('description');
+  const title = hasTitle
+    ? searchParams.get('title')?.slice(0, 100)
+    : 'Compiled';
+
+  const description = hasDescription
+    ? searchParams.get('description')?.slice(0, 100)
+    : 'A compiled resource for everyday needs of web developers.';
+
   return new ImageResponse(
     (
       <div
@@ -21,11 +34,8 @@ export default function () {
         }}
       >
         <div tw=' flex flex-col  items-center  text-center'>
-          <h2 tw='text-9xl font-black mb-5'>Compiled</h2>
-          <p tw='text-2xl'>
-            {' '}
-            A compiled resource for everyday needs of web developers.
-          </p>
+          <h2 tw='text-9xl font-black mb-5'>{title}</h2>
+          <p tw='text-2xl'> {description}</p>
         </div>
       </div>
     ),

@@ -6,6 +6,7 @@ import { Main, MainHero } from '@/components/index';
 import { getDatabase } from '@/lib/Notion';
 import { Column, Page } from '@/lib/types';
 import { NextSeo } from 'next-seo';
+import Head from 'next/head';
 
 interface Props {
   list: Column[];
@@ -22,8 +23,16 @@ export default function Home({ list, page }: Props) {
     // @ts-ignore
     page[0]?.properties?.description?.rich_text[0]?.plain_text ?? '';
 
+  const baseUrl = process.env.NEXT_PUBLIC_HOST;
+
   return (
     <>
+      <Head>
+        <meta
+          property='og:image'
+          content={`${baseUrl}/api/og?title=${title}&description=${description}`}
+        />
+      </Head>
       <NextSeo title={`Compiled - ${title}`} description={description} />
       <MainHero
         title={title}
