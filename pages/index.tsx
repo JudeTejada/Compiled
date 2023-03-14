@@ -12,8 +12,6 @@ interface Props {
 export default function Home({ resources }: Props) {
   const baseUrl = process.env.NEXT_PUBLIC_HOST;
 
-
-  console.log(`${baseUrl}/api/og`)
   return (
     <>
       <Head>

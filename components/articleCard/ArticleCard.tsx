@@ -13,6 +13,7 @@ export const ArticleCard = (props: ArticleCardProps) => {
 
   const { Description, Link, Image, Name } = properties;
 
+
   return (
     <a href={Link.rich_text[0].plain_text} target='_blank' rel='noreferrer'>
       <div
