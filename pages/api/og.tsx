@@ -2,8 +2,9 @@ import { ImageResponse } from '@vercel/og';
 import { NextRequest } from 'next/server';
 
 export const config = {
-  runtime: 'edge'
+  runtime: 'experimental-edge'
 };
+
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default function (req: NextRequest) {
