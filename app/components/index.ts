@@ -1,3 +1,5 @@
+'use client';
+
 export * from './listCards';
 export * from './articleCard';
 export * from './header';

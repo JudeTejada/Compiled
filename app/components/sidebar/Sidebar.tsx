@@ -1,9 +1,11 @@
+'use client';
+
 import Image from 'next/image';
-import { useRouter } from 'next/router';
+import { usePathname, useRouter } from 'next/navigation';
 
-import Avatar from '../../public/images/avatar.png';
+import Avatar from '../../../public/images/avatar.png';
 
-import { NavLink } from '@/components/index';
+import { NavLink } from 'app/components/index';
 
 import { useMenuAtom } from '@/hooks/useMenuAtom';
 
@@ -11,9 +13,8 @@ import { pages } from '@/constants/routes';
 
 export const Sidebar: React.FC = () => {
   const { isMenuOpen } = useMenuAtom();
-  const router = useRouter();
 
-  const { page: currentPage } = router.query;
+  const pathname = usePathname();
 
   return (
     <aside
@@ -25,12 +26,12 @@ export const Sidebar: React.FC = () => {
       }}
     >
       <ul className='grid w-full gap-y-2'>
-        <NavLink href='/' isActive={router.asPath === '/'}>
+        <NavLink href='/' isActive={pathname === '/'}>
           All
         </NavLink>
 
         {pages.map(page => (
-          <NavLink key={page} href={`/${page}`} isActive={page === currentPage}>
+          <NavLink key={page} href={`/${page}`} isActive={page === pathname}>
             {page}
           </NavLink>
         ))}

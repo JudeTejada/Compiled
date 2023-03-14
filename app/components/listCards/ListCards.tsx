@@ -1,4 +1,6 @@
-import { ArticleCard } from '@/components/index';
+'use client';
+
+import { ArticleCard } from 'app/components/index';
 
 import { useMenuAtom } from '@/hooks/useMenuAtom';
 

@@ -1,3 +1,5 @@
+'use client'
+
 import { useMenuAtom } from '@/hooks/useMenuAtom';
 
 interface Props {

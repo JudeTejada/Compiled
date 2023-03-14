@@ -2,7 +2,7 @@ import { ChangeEvent, useMemo, useState } from 'react';
 
 import { Column } from '@/lib/types';
 
-import { ListCards, SearchBar } from '@/components/index';
+import { ListCards, SearchBar } from 'app/components/index';
 
 interface Props {
   list: Column[];

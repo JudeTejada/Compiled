@@ -1,14 +1,41 @@
-export default function RootLayout({
-  // Layouts must accept a children prop.
-  // This will be populated with nested layouts or pages
-  children
-}: {
-  children: React.ReactNode;
-}) {
+'use client';
+
+import './globals.css';
+import { RecoilRoot } from 'recoil';
+
+import { Sidebar, Container, Header, Button } from 'app/components';
+import { Inter } from 'next/font/google';
+import { ChevronUpIcon } from '@heroicons/react/24/outline';
+import { useScrollToBottom } from '@/hooks/use-scroll-to-bottom';
+import { type ReactNode, useRef } from 'react';
+
+const inter = Inter({ subsets: ['latin'] });
+
+function MyApp(props: { children: ReactNode }) {
+  const { children } = props;
+  const mainRef = useRef<HTMLElement>(null);
+
+  const reachedBottom = useScrollToBottom({
+    customHeight:
+      typeof window !== 'undefined' ? document.body.offsetHeight / 2 : 500
+  });
+
   return (
-    <html lang='en'>
-      <h1>Hello World</h1>
-      <body>{children}</body>
+    <html>
+      <head></head>
+      <body className={inter.className}>
+        <RecoilRoot>
+          <Sidebar />
+          <main className='flex min-h-screen relative' ref={mainRef}>
+            <Container>
+              <Header />
+              {children}
+            </Container>
+          </main>
+        </RecoilRoot>
+      </body>
     </html>
   );
 }
+
+export default MyApp;

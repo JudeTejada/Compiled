@@ -1,3 +1,5 @@
+'use client';
+
 import NextLink from 'next/link';
 
 import { useMenuAtom } from '@/hooks/useMenuAtom';
@@ -30,7 +32,8 @@ export const NavLink = ({
         href={href}
         passHref
         className='w-full text-sm cursor-pointer md:text-base'
-        legacyBehavior>
+        legacyBehavior
+      >
         {children}
       </NextLink>
     </li>

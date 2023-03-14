@@ -1,5 +1,5 @@
 import { Column } from '@/lib/types';
-import { BlurImage } from '@/components/.';
+import { BlurImage } from 'app/components';
 
 interface ArticleCardProps extends Column {
   index: number;
@@ -12,7 +12,6 @@ export const ArticleCard = (props: ArticleCardProps) => {
     content.length > 92 ? content.slice(0, 92).concat('...') : content;
 
   const { Description, Link, Image, Name } = properties;
-
 
   return (
     <a href={Link.rich_text[0].plain_text} target='_blank' rel='noreferrer'>
