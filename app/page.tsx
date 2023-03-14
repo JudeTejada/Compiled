@@ -2,6 +2,12 @@ import { Main, MainHero } from 'app/components';
 
 import { getDatabase } from '@/lib/Notion';
 import { Column } from '@/lib/types';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Compiled',
+  description: 'A compiled of all resources for web developers'
+};
 
 export default async function Home() {
   return (

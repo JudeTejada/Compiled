@@ -17,12 +17,16 @@ function MyApp(props: { children: ReactNode }) {
 
   const reachedBottom = useScrollToBottom({
     customHeight:
-      typeof window !== 'undefined' ? document.body.offsetHeight / 2 : 500
+      typeof window !== 'undefined' ? document.body.offsetHeight / 2 : 0
   });
+
+  const baseUrl = process.env.NEXT_PUBLIC_HOST;
 
   return (
     <html>
-      <head></head>
+      <head>
+        <meta property='og:image' content={`${baseUrl}/api/og`} />
+      </head>
       <body className={inter.className}>
         <RecoilRoot>
           <Sidebar />
@@ -30,6 +34,17 @@ function MyApp(props: { children: ReactNode }) {
             <Container>
               <Header />
               {children}
+              {reachedBottom && (
+                <Button
+                  type='primary'
+                  className='rounded-full fixed right-5 bottom-5  w-12 shadow-xl'
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: 'smooth' })
+                  }
+                >
+                  <ChevronUpIcon />
+                </Button>
+              )}
             </Container>
           </main>
         </RecoilRoot>
