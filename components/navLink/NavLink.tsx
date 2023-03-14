@@ -30,7 +30,7 @@ export const NavLink = ({
         href={href}
         passHref
         className='w-full text-sm cursor-pointer md:text-base'
-      >
+        legacyBehavior>
         {children}
       </NextLink>
     </li>
