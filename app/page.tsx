@@ -3,14 +3,10 @@ import { Main, MainHero } from 'app/components/index';
 import { getDatabase } from '@/lib/Notion';
 import { Column } from '@/lib/types';
 
-interface Props {
-  resources: Column[];
-}
-
-export default async function Home({ resources }: Props) {
+export default async function Home() {
   const baseUrl = process.env.NEXT_PUBLIC_HOST;
 
-  const list = await getDatabase(process.env.NOTION_DATABASE_ID!);
+  // const list = await getDatabase(process.env.NOTION_DATABASE_ID!);
 
   return (
     <>
@@ -19,7 +15,7 @@ export default async function Home({ resources }: Props) {
         title='All Resources'
         description='A compiled of all resources for web developers'
       />
-      <Main list={resources} />
+      {/* <Main list={resources} /> */}
     </>
   );
 }

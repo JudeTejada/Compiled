@@ -6,7 +6,7 @@ import { RecoilRoot } from 'recoil';
 import { Sidebar, Container, Header, Button } from 'app/components';
 import { Inter } from 'next/font/google';
 import { ChevronUpIcon } from '@heroicons/react/24/outline';
-import { useScrollToBottom } from '@/hooks/use-scroll-to-bottom';
+import { useScrollToBottom } from 'hooks';
 import { type ReactNode, useRef } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
