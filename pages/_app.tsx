@@ -5,7 +5,7 @@ import { RecoilRoot } from 'recoil';
 import { Page } from '@/lib/types';
 
 import { Sidebar, Container, Header, Button } from '@/components/index';
-import { Inter } from '@next/font/google';
+import { Inter } from "next/font/google";
 import { ChevronUpIcon } from '@heroicons/react/24/outline';
 import { useScrollToBottom } from '@/hooks/use-scroll-to-bottom';
 import { useRef } from 'react';
