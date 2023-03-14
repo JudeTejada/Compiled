@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 import Avatar from '../../../public/images/avatar.png';
 
@@ -18,6 +18,7 @@ export const Sidebar: React.FC = () => {
 
   return (
     <aside
+      hidden={!isMenuOpen}
       className={`bg-secondaryDark   ${
         isMenuOpen ? `w-0` : `w-[18%]`
       } overflow-y-auto  max-h-screen py-6 transition-width duration-200 ease-in-out fixed h-screen  items-start justify-between flex-col hidden md:flex `}
