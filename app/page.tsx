@@ -1,23 +1,27 @@
-import { Main, MainHero } from 'app/components/index';
+import { Main, MainHero } from 'app/components';
 
 import { getDatabase } from '@/lib/Notion';
 import { Column } from '@/lib/types';
+import { Suspense } from 'react';
 
 export default async function Home() {
-  const baseUrl = process.env.NEXT_PUBLIC_HOST;
-
-  // const list = await getDatabase(process.env.NOTION_DATABASE_ID!);
-
   return (
     <>
-      <h1>Hello world</h1>
       <MainHero
         title='All Resources'
         description='A compiled of all resources for web developers'
       />
-      {/* <Main list={resources} /> */}
+      <Suspense fallback={<h1>Loading</h1>}>
+        {/* @ts-expect-error Server Component */}
+        <ListData />
+      </Suspense>
     </>
   );
+}
+
+async function ListData() {
+  const list = (await getDatabase(process.env.NOTION_DATABASE_ID!)) as Column[];
+  return <Main list={list} />;
 }
 
 // export const getStaticProps = async () => {

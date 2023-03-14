@@ -7,7 +7,7 @@ import { Sidebar, Container, Header, Button } from 'app/components';
 import { Inter } from 'next/font/google';
 import { ChevronUpIcon } from '@heroicons/react/24/outline';
 import { useScrollToBottom } from 'hooks';
-import { type ReactNode, useRef } from 'react';
+import { type ReactNode, useRef, Suspense } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -29,7 +29,7 @@ function MyApp(props: { children: ReactNode }) {
           <main className='flex min-h-screen relative' ref={mainRef}>
             <Container>
               <Header />
-              {children}
+              <Suspense fallback={<h1>Loading</h1>}>{children}</Suspense>
             </Container>
           </main>
         </RecoilRoot>
