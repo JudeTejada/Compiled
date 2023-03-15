@@ -1,6 +1,6 @@
 'use-client';
 import NextLink from 'next/link';
-import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { Bars3Icon } from '@heroicons/react/24/outline';
 
 import { pages } from '@/constants/routes';
@@ -8,12 +8,12 @@ import { pages } from '@/constants/routes';
 import { useMenuAtom } from '@/hooks/index';
 import { ButtonLink, NavLink } from 'app/components/index';
 import { useMediaQuery } from 'react-responsive';
+import { decodeParam } from '@/lib/util';
 
 export const Header: React.FC = () => {
-  const router = useRouter();
-  // const { page: currentPage } = router.;
+  const pathname = usePathname();
+  const currentPage = decodeParam(pathname!);
 
-  const currentPage = 'React';
   const { toggleMenu, isMenuOpen } = useMenuAtom();
 
   const isMobile = useMediaQuery({
@@ -52,7 +52,7 @@ export const Header: React.FC = () => {
         style={{ height: 'calc(100vh - 48px' }}
       >
         <ul className='grid w-full gap-y-2'>
-          <NavLink isActive={router.asPath === '/'} href='/'>
+          <NavLink isActive={pathname === '/'} href='/'>
             All
           </NavLink>
 

@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import NextLink from 'next/link';
 
 import { useMenuAtom } from '@/hooks/useMenuAtom';
@@ -20,12 +21,15 @@ export const NavLink = ({
 }: React.PropsWithChildren<Props>) => {
   const { toggleMenu } = useMenuAtom();
 
+
   return (
     <li
       onClick={() => toggleMenu(false)}
-      className={`w-full px-3  lg:px-12 py-3   hover:bg-tertiaryDark ${
-        isActive && 'bg-tertiaryDark'
-      } ${className}`}
+      className={clsx(
+        'w-full px-3  lg:px-12 py-3    hover:bg-tertiaryDark',
+        isActive && 'bg-tertiaryDark',
+        className
+      )}
       {...props}
     >
       <NextLink
