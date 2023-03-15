@@ -7,7 +7,7 @@ import { Column, Page } from '@/lib/types';
 import { decodeParam } from '@/lib/util';
 
 export function Content(props: { category: Page; list: Column[] }) {
-  const pathname = usePathname();
+  const pathname = usePathname()!;
 
   const formatted = decodeParam(pathname);
   const { category, list } = props;
@@ -27,5 +27,3 @@ export function Content(props: { category: Page; list: Column[] }) {
     </>
   );
 }
-
-export function ContentList() {}

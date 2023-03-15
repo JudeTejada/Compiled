@@ -14,8 +14,8 @@ export const BlurImage = ({ alt, ...props }: ImageProps) => {
         className={` rounded-md object-cover
         ${
           isLoading
-            ? 'grayscale blur-2xl scale-110 '
-            : 'grayscale-0 blur-0 scale-100'
+            ? 'scale-[1.02] blur-lg grayscale'
+            : 'scale-100 blur-0 grayscale-0"'
         }`}
         sizes='(max-width: 640px) 100vw,
     (max-width: 1280px) 50vw,

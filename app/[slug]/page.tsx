@@ -45,7 +45,7 @@ export default async function SlugPage({
   params
 }: {
   params: { slug: string };
-}) {
+}) {  
   const { slug } = params;
 
   const decodedSlug = decodeParam(slug);
