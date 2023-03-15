@@ -12,6 +12,8 @@ export function Content(props: { category: Page; list: Column[] }) {
   const formatted = decodeParam(pathname);
   const { category, list } = props;
 
+  // @ts-ignore
+
   const title = category[0]?.properties?.Page?.title[0]?.plain_text ?? '';
   const description =
     // @ts-ignore
