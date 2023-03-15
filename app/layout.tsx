@@ -11,7 +11,7 @@ import { type ReactNode, useRef } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
-function MyApp(props: { children: ReactNode }) {
+function MyApp(props: { children: ReactChild }) {
   const { children } = props;
   const mainRef = useRef<HTMLElement>(null);
 
@@ -34,6 +34,7 @@ function MyApp(props: { children: ReactNode }) {
             <Container>
               <Header />
               {children}
+
               {reachedBottom && (
                 <Button
                   type='primary'
