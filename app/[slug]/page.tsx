@@ -36,7 +36,15 @@ export async function generateMetadata({
     openGraph: {
       description: description,
       url: baseUrl,
-      siteName: 'Compiled'
+      siteName: 'Compiled',
+
+      images: [
+        {
+          url: `${baseUrl}/images/banner.pngƒ`,
+          width: 800,
+          height: 600
+        }
+      ]
     }
   };
 }
@@ -45,7 +53,7 @@ export default async function SlugPage({
   params
 }: {
   params: { slug: string };
-}) {  
+}) {
   const { slug } = params;
 
   const decodedSlug = decodeParam(slug);
