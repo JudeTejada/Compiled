@@ -3,7 +3,7 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useState } from 'react';
 
-import { Button } from 'app/components/index';
+import { Button } from 'app/components';
 import { Page } from '@/lib/types';
 
 export const isUrl = (string: string): boolean => {
