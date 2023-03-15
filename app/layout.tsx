@@ -17,19 +17,15 @@ function RootLayout(props: RootLayoutProps) {
   const { children } = props;
   const mainRef = useRef<HTMLElement>(null);
 
-  const reachedBottom = useScrollToBottom({
+  const hasReachedBottom = useScrollToBottom({
     customHeight:
       typeof window !== 'undefined' ? document.body.offsetHeight / 2 : 0
   });
 
-  const baseUrl = process.env.NEXT_PUBLIC_HOST;
-
   return (
     <>
       <html>
-        <head>
-          <meta property='og:image' content={`${baseUrl}/api/og`} />
-        </head>
+        <head></head>
         <body className={inter.className}>
           <RecoilRoot>
             <Sidebar />
@@ -39,7 +35,7 @@ function RootLayout(props: RootLayoutProps) {
 
                 {children as ReactChild}
 
-                {reachedBottom && (
+                {hasReachedBottom && (
                   <Button
                     type='primary'
                     className='rounded-full fixed right-5 bottom-5  w-12 shadow-xl'
