@@ -1,3 +1,5 @@
+'use client';
+
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { menuState } from '@/recoil/atom';
 

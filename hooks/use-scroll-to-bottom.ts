@@ -15,7 +15,7 @@ export function useScrollToBottom(props: ScrollToBottom): Boolean {
         return setScrollToBottom(true);
       }
 
-      if (window.scrollY === 0)  setScrollToBottom(false);
+      if (window.scrollY === 0) setScrollToBottom(false);
     },
     [customHeight]
   );
