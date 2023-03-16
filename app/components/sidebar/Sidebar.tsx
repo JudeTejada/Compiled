@@ -10,18 +10,19 @@ import { NavLink } from 'app/components/index';
 import { useMenuAtom } from '@/hooks/useMenuAtom';
 
 import { pages } from '@/constants/routes';
+import { decodeParam } from '@/lib/util';
 
 export const Sidebar: React.FC = () => {
   const { isMenuOpen } = useMenuAtom();
 
   const pathname = usePathname();
 
+  const currentPage = decodeParam(pathname!);
   return (
     <aside
       hidden={!isMenuOpen}
-      className={`bg-secondaryDark   ${
-        isMenuOpen ? `w-0` : `w-[18%]`
-      } overflow-y-auto  max-h-screen py-6 transition-width duration-200 ease-in-out fixed h-screen  items-start justify-between flex-col hidden md:flex `}
+      className={`bg-secondaryDark   ${isMenuOpen ? `w-0` : `w-[18%]`
+        } overflow-y-auto  max-h-screen py-6 transition-width duration-200 ease-in-out fixed h-screen  items-start justify-between flex-col hidden md:flex `}
       style={{
         zIndex: 10
       }}
@@ -32,7 +33,7 @@ export const Sidebar: React.FC = () => {
         </NavLink>
 
         {pages.map(page => (
-          <NavLink key={page} href={`/${page}`} isActive={page === pathname}>
+          <NavLink key={page} href={`/${page}`} isActive={page === currentPage}>
             {page}
           </NavLink>
         ))}

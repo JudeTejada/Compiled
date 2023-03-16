@@ -1,14 +1,14 @@
 'use-client';
+import { Bars3Icon } from '@heroicons/react/24/outline';
 import NextLink from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Bars3Icon } from '@heroicons/react/24/outline';
 
 import { pages } from '@/constants/routes';
 
 import { useMenuAtom } from '@/hooks/index';
+import { decodeParam } from '@/lib/util';
 import { ButtonLink, NavLink } from 'app/components/index';
 import { useMediaQuery } from 'react-responsive';
-import { decodeParam } from '@/lib/util';
 
 export const Header: React.FC = () => {
   const pathname = usePathname();
@@ -20,14 +20,14 @@ export const Header: React.FC = () => {
     query: '(max-width: 500px)'
   });
 
+
   const isNavOpen = isMenuOpen ? `transition-opacity` : `opacity-0 invisible`;
 
   return (
     <>
       <header
-        className={`flex justify-between ${
-          isMobile && 'fixed inset-x-0  bg-secondaryDark z-50 px-6 top-0 py-4'
-        }`}
+        className={`flex justify-between ${isMobile && 'fixed inset-x-0  bg-secondaryDark z-50 px-6 top-0 py-4'
+          }`}
       >
         <div className='flex items-center justify-between '>
           <Bars3Icon
