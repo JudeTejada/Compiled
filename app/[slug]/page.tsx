@@ -40,7 +40,7 @@ export async function generateMetadata({
 
       images: [
         {
-          url: `${baseUrl}/images/banner.pngƒ`,
+          url: `${baseUrl}/images/banner.png`,
           width: 800,
           height: 600
         }

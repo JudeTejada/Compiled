@@ -5,7 +5,20 @@ import { getResources } from './server/notion';
 
 export const metadata: Metadata = {
   title: 'Compiled',
-  description: 'A compiled of all resources for web developers'
+  description: 'A compiled of all resources for web developers',
+  openGraph: {
+    description: 'A compiled of all resources for web developers',
+    url: process.env.NEXT_PUBLIC_HOST,
+    siteName: 'Compiled',
+
+    images: [
+      {
+        url: `${process.env.NEXT_PUBLIC_HOST}/images/banner.png`,
+        width: 800,
+        height: 600
+      }
+    ]
+  }
 };
 
 export default async function Home() {
