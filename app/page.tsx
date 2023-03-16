@@ -1,8 +1,7 @@
 import { Main, MainHero } from 'app/components';
 
-import { getDatabase } from '@/lib/Notion';
-import { Column } from '@/lib/types';
 import { Metadata } from 'next';
+import { getResources } from './server/notion';
 
 export const metadata: Metadata = {
   title: 'Compiled',
@@ -23,6 +22,6 @@ export default async function Home() {
 }
 
 async function ListData() {
-  const list = (await getDatabase(process.env.NOTION_DATABASE_ID!)) as Column[];
+  const list = await getResources();
   return <Main list={list} />;
 }

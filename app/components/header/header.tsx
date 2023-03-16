@@ -48,7 +48,7 @@ export const Header: React.FC = () => {
         </div>
       </header>
       <nav
-        className={`fixed left-0 z-50 w-full bg-secondaryDark top-20 block md:hidden ${isNavOpen} overflow-y-auto `}
+        className={`fixed left-0 z-50 w-full bg-secondaryDark top-20 block md:hidden ${isNavOpen} overflow-y-auto  `}
         style={{ height: 'calc(100vh - 48px' }}
       >
         <ul className='grid w-full gap-y-2'>
