@@ -23,35 +23,28 @@ function RootLayout(props: RootLayoutProps) {
   });
 
   return (
-    <>
-      <html>
-        <head></head>
-        <body className={inter.className}>
-          <RecoilRoot>
-            <Sidebar />
-            <main className='flex min-h-screen relative' ref={mainRef}>
-              <Container>
-                <Header />
+    <body className={inter.className}>
+      <RecoilRoot>
+        <Sidebar />
+        <main className='flex min-h-screen relative' ref={mainRef}>
+          <Container>
+            <Header />
 
-                {children as ReactChild}
+            {children as ReactChild}
 
-                {hasReachedBottom && (
-                  <Button
-                    type='primary'
-                    className='rounded-full fixed right-5 bottom-5  w-12 shadow-xl'
-                    onClick={() =>
-                      window.scrollTo({ top: 0, behavior: 'smooth' })
-                    }
-                  >
-                    <ChevronUpIcon />
-                  </Button>
-                )}
-              </Container>
-            </main>
-          </RecoilRoot>
-        </body>
-      </html>
-    </>
+            {hasReachedBottom && (
+              <Button
+                type='primary'
+                className='rounded-full fixed right-5 bottom-5  w-12 shadow-xl'
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              >
+                <ChevronUpIcon />
+              </Button>
+            )}
+          </Container>
+        </main>
+      </RecoilRoot>
+    </body>
   );
 }
 
